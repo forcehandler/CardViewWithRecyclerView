@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CardViewWithRecyclerView</string>
+    <string name="redeem_btn">redeem</string>
+</resources>

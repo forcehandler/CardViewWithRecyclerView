@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="library-2.9">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.msg91.sendotp.library/library/2.9/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.msg91.sendotp.library/library/2.9/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.msg91.sendotp.library/library/2.9/e083151b07005cd9fa1e5496272f566eac0ed473/library-2.9-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
