@@ -114,7 +114,7 @@ public class CreateAccountActivity extends BaseActivity implements View.OnClickL
                 if (user != null) {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    Intent intent = new Intent(CreateAccountActivity.this, MainActivity.class);
+                    Intent intent = new Intent(CreateAccountActivity.this, TemporaryOfferActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                     finish();

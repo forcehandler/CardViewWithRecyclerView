@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link CouponsFragmentListener} interface
+ * {@link OffersFragmentListener} interface
  * to handle interaction events.
  * Use the {@link OfferFragment#newInstance} factory method to
  * create an instance of this fragment.
@@ -46,7 +46,7 @@ public class OfferFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     private String mParam1;
     private String mParam2;
 
-    private CouponsFragmentListener mListener;
+    private OffersFragmentListener mListener;
 
     public OfferFragment() {
         // Required empty public constructor
@@ -120,7 +120,7 @@ public class OfferFragment extends Fragment implements SwipeRefreshLayout.OnRefr
 
             @Override
             protected void populateViewHolder(OfferHolder viewHolder, Offer model, int position) {
-                Log.d(TAG, "populating the offer viewholder");
+                Log.d(TAG, "populating the offer view holder");
                viewHolder.setmBrandImageIv(model.getShopURL());
                 viewHolder.setmMainImageIv(model.getPhotoURL());
                 viewHolder.setmBrandTitleTv(model.getBrand());
@@ -144,11 +144,11 @@ public class OfferFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof CouponsFragmentListener) {
-            mListener = (CouponsFragmentListener) context;
+        if (context instanceof OffersFragmentListener) {
+            mListener = (OffersFragmentListener) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement CouponsFragmentListener");
+                    + " must implement OffersFragmentListener");
         }
     }
 
@@ -163,25 +163,7 @@ public class OfferFragment extends Fragment implements SwipeRefreshLayout.OnRefr
 
     }
 /*
-    private void attachFirebaseRecyclerAdapter()
-    {
-        // Initialize the adapter with the firebase recycler adapter
-        mAdapter = new FirebaseRecyclerAdapter<Offer, OfferHolder>(Offer.class, R.layout.offer_cardview, OfferHolder.class, mRef){
 
-            @Override
-            protected void populateViewHolder(OfferHolder viewHolder, Offer model, int position) {
-                Log.d(TAG, "populating the offer viewholder");
-                viewHolder.setmBrandImageIv(model.getShopURL());
-                viewHolder.setmMainImageIv(model.getPhotoURL());
-                viewHolder.setmBrandTitleTv(model.getBrand());
-                viewHolder.setmDescriptionTv(model.getDescription());
-            }
-        };
-
-        // Set the adapter to the recycler
-        recyclerView.setAdapter(mAdapter);
-        //swipeRefreshLayout.setRefreshing(false);
-    }*/
 
     /**
      * This interface must be implemented by activities that contain this
@@ -193,7 +175,7 @@ public class OfferFragment extends Fragment implements SwipeRefreshLayout.OnRefr
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface CouponsFragmentListener {
+    public interface OffersFragmentListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }

@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-public class TemporaryOfferActivity extends AppCompatActivity implements OfferSkyOfferFragment.OnFragmentInteractionListener{
+public class TemporaryOfferActivity extends AppCompatActivity implements OfferFragment.OffersFragmentListener{
 
     private final String TAG = TemporaryOfferActivity.class.getSimpleName();
     @Override
@@ -30,6 +30,7 @@ public class TemporaryOfferActivity extends AppCompatActivity implements OfferSk
 
             //TODO: Temporarily testing OfferSky fragment with imageloader
             OfferSkyOfferFragment offerSkyOfferFragment = new OfferSkyOfferFragment();
+            OfferFragment offerFragment = new OfferFragment();
             // In case this activity was started with special instructions from an
             // Intent, pass the Intent's extras to the fragment as arguments
             //firstFragment.setArguments(getIntent().getExtras());
@@ -38,7 +39,7 @@ public class TemporaryOfferActivity extends AppCompatActivity implements OfferSk
             // Adding fragment to the frame Layout
             // Add the fragment to the 'fragment_container' FrameLayout
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.offer_fragment_container, offerSkyOfferFragment).commit();
+                    .add(R.id.offer_fragment_container, offerFragment).commit();
         }
     }
 
