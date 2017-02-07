@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +21,7 @@ import com.msg91.sendotp.library.VerificationListener;
 
 import org.joda.time.LocalDate;
 
-public class CreateAccountActivity extends AppCompatActivity implements View.OnClickListener, VerificationListener {
+public class CreateAccountActivity extends BaseActivity implements View.OnClickListener, VerificationListener {
 
     private static final String TAG = CreateAccountActivity.class.getSimpleName();
 
@@ -32,6 +31,8 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     private Button mCreateUserButton;
+    private Button mVerifyUserButton;
+    private EditText mOtpEditText;
     private EditText mNameEditText;
     private EditText mPhoneEditText;
     private EditText mAgeEditText;
@@ -46,34 +47,51 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onStart()
     {
+        Log.d(TAG, "in onStart");
         super.onStart();
-
+        mAuth.addAuthStateListener(mAuthListener);
     }
 
-     @Override public void onStop()
+     @Override
+     public void onDestroy()
      {
-         super.onStop();
-         if(mAuthListener != null)
-         {
-             mAuth.removeAuthStateListener(mAuthListener);
-         }
-         if(mVerification != null)
-         {
-            // unregisterReceiver();
-         }
+         mVerification = null;
+         super.onDestroy();
      }
+
+    @Override
+    public void onPause()
+    {
+        //mVerification = null;
+        super.onPause();
+    }
+
+    // [START on_stop_remove_listener]
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+    // [END on_stop_remove_listener]
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG, "in onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
 
+        // Enable local caching on Firebase
+
 
         mAuth = FirebaseAuth.getInstance();
-        createAuthProgressDialog();
 
+        createAuthStateListener();
+        mVerifyUserButton = (Button) findViewById(R.id.verifyOtpButton);
         mCreateUserButton = (Button) findViewById(R.id.createUserButton);
+        mOtpEditText = (EditText) findViewById(R.id.otpEditText);
         mNameEditText = (EditText) findViewById(R.id.nameEditText);
         mPhoneEditText = (EditText) findViewById(R.id.phoneEditText);
         mAgeEditText = (EditText) findViewById(R.id.ageEditText);
@@ -81,27 +99,56 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         mBloodEditText = (EditText) findViewById(R.id.bloodEditText);
 
         mCreateUserButton.setOnClickListener(this);
-
-        //listen to authentication events
-        createAuthStateListener();
-
-        mAuth.addAuthStateListener(mAuthListener);
+        mVerifyUserButton.setOnClickListener(this);
 
 
     }
 
-    private void createAuthProgressDialog() {
-        mAuthProgressDialog = new ProgressDialog(this);
-        mAuthProgressDialog.setTitle("Loading...");
-        mAuthProgressDialog.setMessage("Authenticating with Firebase...");
-        mAuthProgressDialog.setCancelable(false);
+    private void createAuthStateListener()
+    {
+        // [START auth_state_listener]
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    Intent intent = new Intent(CreateAccountActivity.this, MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    // User is signed out
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                }
+                // [START_EXCLUDE]
+                //updateUI(user);
+                // [END_EXCLUDE]
+            }
+        };
+        // [END auth_state_listener]
     }
+
 
     @Override
     public void onClick(View v) {
-
+        Log.d(TAG, "in onClick");
         if (v == mCreateUserButton) {
             createNewUser();
+
+        }
+        if (v == mVerifyUserButton) {
+            if(mOtpEditText.getText().toString().trim().equals("")) {
+                Log.d(TAG, mOtpEditText.getText().toString().equals(null) + " " + mOtpEditText.getText().toString());
+                mOtpEditText.setError("Please enter your Otp");
+            }
+            else
+            {
+                if(mVerification != null) {
+                    mVerification.verify(mOtpEditText.getText().toString());
+                }
+            }
         }
     }
 
@@ -123,63 +170,88 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         return true;
     }
 
-    //TODO: add is valid age
+    // Create Account with Email and Password
 
-    /*private boolean isValidPassword(String password, String confirmPassword) {
-        if (password.length() < 6) {
-            mAgeEditText.setError("Please create a password containing at least 6 characters");
-            return false;
-        } else if (!password.equals(confirmPassword)) {
-            mAgeEditText.setError("Passwords do not match");
-            return false;
-        }
-        return true;
-    }*/
+    private void createAnonymousUser(final String email, final String password) {
+        Log.d(TAG, "createAccount:" + email);
+
+
+        showProgressDialog();
+
+        // [START create_user_with_email]
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
+
+                        // If sign in fails, display a message to the user. If sign in succeeds
+                        // the auth state listener will be notified and logic to handle the
+                        // signed in user can be handled in the listener.
+                        if (!task.isSuccessful()) {
+                            Toast.makeText(CreateAccountActivity.this, "Authentication Failed",
+                                    Toast.LENGTH_SHORT).show();
+
+                            // If the user is unable to authenticate then sign in the user in the
+                            // background using his phone number and default password
+                            signIn(email, password);
+
+                        }
+
+                        // [START_EXCLUDE]
+                        hideProgressDialog();
+                        // [END_EXCLUDE]
+                    }
+                });
+        // [END create_user_with_email]
+    }
+
+    private void signIn(String email, String password) {
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
+
+                        // If sign in fails, display a message to the user. If sign in succeeds
+                        // the auth state listener will be notified and logic to handle the
+                        // signed in user can be handled in the listener.
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "signInWithEmail:failed", task.getException());
+                            Toast.makeText(CreateAccountActivity.this, "Sign in failed",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
+                        //hideProgressDialog();
+
+                    }
+                });
+    }
+
 
     private void createNewUser() {
+        Log.d(TAG, "in createNewUser");
         final String name = mNameEditText.getText().toString().trim();
         final String phone = mPhoneEditText.getText().toString().trim();
-        /*String password = mAgeEditText.getText().toString().trim();
-        String confirmPassword = mGenderEditText.getText().toString().trim();*/
 
         boolean validPhone = isValidPhone(phone);
         boolean validName = isValidName(name);
-        /*boolean validPassword = isValidPassword(password, confirmPassword);*/
         if (!validPhone || !validName){
             return;
         }
 
         //TODO: Implement OTP properly, currently only for testing purposes
-        mVerification = SendOtpVerification.createSmsVerification(this, "9130643253",this, "91");
+        mVerification = SendOtpVerification.createSmsVerification(this, phone, this, "91", true);
         mVerification.initiate(); //sending otp on given number
 
         //TODO: storing user values when the values are sane, in later version
         //TODO: store values in preferences after OTP is matched
-        storeUserData();
-        //create an emailAddress out of the phone number
-        final String email = phone + Constants.USER_DEFAULT_EMAIL_DOMAIN;
 
-        mAuthProgressDialog.show();
-
-        mAuth.createUserWithEmailAndPassword(email, Constants.USER_DEFAULT_PASSWORD)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-
-                        mAuthProgressDialog.dismiss();
-
-                        if (task.isSuccessful()) {
-                            Log.d(TAG, "Authentication successful");
-
-                        } else {
-                            Toast.makeText(CreateAccountActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
     }
 
     private void storeUserData() {
+        Log.d(TAG, "in storeUserData");
         String name = mNameEditText.getText().toString();
         String phone = mPhoneEditText.getText().toString();
         String age = mAgeEditText.getText().toString();
@@ -188,49 +260,44 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         //TODO: fetch uid from server, currently setting it up as the current time
         LocalDate now = new LocalDate();
         String uid = now.toString();
-        User userObj = new User(uid, name,age,phone, gender, blood);
+        User userObj = new User(uid, name, age, phone, gender, blood);
         //store user preferences locally
-        MySharedPreferences.setUserPreference(Constants.USER_PREF_KEY,userObj, getApplicationContext());
+        MySharedPreferences.setUserPreference(Constants.USER_PREF_KEY, userObj, getApplicationContext());
         //TODO: sync this with firebase
         MyFireBaseDatabase.updateUserDatabase(userObj);
-    }
 
-    private void createAuthStateListener() {
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                final FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    Intent intent = new Intent(CreateAccountActivity.this, MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
-                }
-            }
-
-        };
+        // TODO: login via firebase
+        String phone_email = phone + Constants.USER_DEFAULT_EMAIL_DOMAIN;
+        String password = Constants.USER_DEFAULT_PASSWORD;
+        createAnonymousUser(phone_email, password);
 
     }
+
 
     //Methods for OTP from Msg91
     @Override
     public void onInitiated(String response) {
+        Log.d(TAG, "got on initiated callback from otp");
         Toast.makeText(this, "sent the otp", Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onInitiationFailed(Exception paramException) {
-
+        Log.d(TAG, "got on failed initialization callback from otp");
+        Toast.makeText(this, "initiation failed", Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onVerified(String response) {
-
+        Log.d(TAG, "got on verification successful callback from otp");
+        Toast.makeText(this, "verification successful", Toast.LENGTH_LONG).show();
+        storeUserData();
     }
 
     @Override
     public void onVerificationFailed(Exception paramException) {
+        Log.d(TAG, "got on verification failed callback from otp");
+        Toast.makeText(this, "verification failed", Toast.LENGTH_LONG).show();
 
     }
 }

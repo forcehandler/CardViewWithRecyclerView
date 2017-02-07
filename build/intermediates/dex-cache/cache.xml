@@ -12,21 +12,156 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.0.1_f90de9cf880c07f31739dd5e1f51679e5c88267b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.1\jars\libs\internal_impl-25.0.1.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
         <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_979dab34d316b135c6757e9312c9f6c3a49870a7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Abhiraj\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_06c2a3124ad85952a2fc20ccc8aa6584421fa4c6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.msg91.sendotp.library\library\2.9\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="04b68ac58fe4a907f581f0ff2e67e0aea9331386">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.msg91.sendotp.library-library-2.9_3934066019c3f044958ee210fbf9272da2c25eef\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.1_a1708fa5a84693451d4a0a415479a28d19ff9bb3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="b24e1c688744078e1fa833ffadf696794761bbe5">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.0.1_46b1041b8953621863663b7262d5994caf24cc95\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-10.0.1_015395d37e142247715b5a82cb2a9e4712ea4383\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Abhiraj\.gradle\caches\modules-2\files-2.1\joda-time\joda-time\2.9.4\1c295b462f16702ebe720bbb08f62e1ba80da41b\joda-time-2.9.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1c295b462f16702ebe720bbb08f62e1ba80da41b">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\joda-time-2.9.4_8174424276d7016719d6055b175e74ae8b6a85dc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.0.1_1a9a150688e676813c9362cae2303d5d771556ab\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="f7ac4b327fdb9e2ee386f5adc46164927658de4b">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.0.1_52dc58f3ea5744d54bbe5747190d16d8f4275b99\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.1\jars\libs\internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="f83b00041ecfba705603fec40363416c7de69719">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_627fa1585c7fb46f41aebfb2d689d7d61d55f442\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.mcxiaoke.volley\library-aar\1.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e40b9a81989bd4a846018551c280f8c4d837bf2e">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.mcxiaoke.volley-library-aar-1.0.0_73a378cf23c7a32acb542177e5ae614d9b31376f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.0.1_4c3754566b496fdf2d80fa74589a85a5894b65f3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-10.0.1_d4eca55a31f87f0337b2fc7575929198e5f1a1e9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.0.1_b86881c6d50e90032be53d3fd59a67062cc44a39\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.0.1_7ed7f460995590bab7977483e5ecdb7792f5aa86\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="00d4c8eebf2b681073c72a26bd0849549e51c7cb">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.0.1_e66b741d265b3c775e1adf37f114fac35eeda20a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.0.1_f90de9cf880c07f31739dd5e1f51679e5c88267b\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -70,26 +205,8 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="5c129d171b715b0770101f3cced39dec4559a6d8">
+        sha1="ec941ad89f85a164caeb6ecd1a6fada1b24a3039">
         <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_9baab026ba1473ec97411f6f5e470b807b6c0050\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Abhiraj\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_06c2a3124ad85952a2fc20ccc8aa6584421fa4c6\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.msg91.sendotp.library\library\2.9\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="04b68ac58fe4a907f581f0ff2e67e0aea9331386">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.msg91.sendotp.library-library-2.9_3934066019c3f044958ee210fbf9272da2c25eef\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -99,24 +216,6 @@
         revision="23.0.3"
         sha1="b0b0f4f99cf68e748dd123ad553738e4284d4749">
         <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.firebaseui-firebase-ui-database-1.0.1_9caced86ecfc855b2444b9ea05b36c094bb3535f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.1_a1708fa5a84693451d4a0a415479a28d19ff9bb3\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="b24e1c688744078e1fa833ffadf696794761bbe5">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.0.1_46b1041b8953621863663b7262d5994caf24cc95\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -147,24 +246,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-10.0.1_015395d37e142247715b5a82cb2a9e4712ea4383\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Abhiraj\.gradle\caches\modules-2\files-2.1\joda-time\joda-time\2.9.4\1c295b462f16702ebe720bbb08f62e1ba80da41b\joda-time-2.9.4.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="1c295b462f16702ebe720bbb08f62e1ba80da41b">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\joda-time-2.9.4_8174424276d7016719d6055b175e74ae8b6a85dc\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -174,39 +255,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.0.1_1a9a150688e676813c9362cae2303d5d771556ab\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="f7ac4b327fdb9e2ee386f5adc46164927658de4b">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.0.1_52dc58f3ea5744d54bbe5747190d16d8f4275b99\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Abhiraj\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.0.1\support-annotations-25.0.1.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="a09194311f8f89c3e6db09d79f50897a889d615e">
         <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.0.1_444343bf47fcd7e3bef8b136e8cfef5b8320e934\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.1\jars\libs\internal_impl-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="f83b00041ecfba705603fec40363416c7de69719">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_627fa1585c7fb46f41aebfb2d689d7d61d55f442\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -223,7 +277,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="439a66676ac5bf76a74aa11450354993c3275373">
+        sha1="571447be7052bc7b66a5d999446b11601cc0e701">
         <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_44c921f0e32a14600a387607a257feca7950ac05\classes.dex" />
     </item>
     <item
@@ -255,57 +309,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.0.1_4c3754566b496fdf2d80fa74589a85a5894b65f3\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-10.0.1_d4eca55a31f87f0337b2fc7575929198e5f1a1e9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Abhiraj\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.1.2\7052283359001bb108753cb0583a887d3bf94c82\okhttp-3.1.2.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="7052283359001bb108753cb0583a887d3bf94c82">
         <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.1.2_47050e7c272fe9f56848272f1ed4c95c27f6905d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.0.1_b86881c6d50e90032be53d3fd59a67062cc44a39\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.0.1_7ed7f460995590bab7977483e5ecdb7792f5aa86\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="00d4c8eebf2b681073c72a26bd0849549e51c7cb">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.0.1_e66b741d265b3c775e1adf37f114fac35eeda20a\classes.dex" />
     </item>
     <item
         is-multidex="true"

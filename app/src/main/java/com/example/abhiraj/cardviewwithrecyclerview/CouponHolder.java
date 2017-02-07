@@ -14,6 +14,7 @@ import com.squareup.picasso.Picasso;
  * Created by Abhiraj on 17-01-2017.
  */
 
+//TODO: This class is currently inactive
 public class CouponHolder extends RecyclerView.ViewHolder {
 
     private TextView mTitleTv, mDetailTv;

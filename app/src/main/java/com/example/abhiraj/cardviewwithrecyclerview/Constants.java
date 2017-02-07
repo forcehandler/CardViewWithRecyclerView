@@ -11,6 +11,7 @@ public class Constants {
     public static String USER_DEFAULT_PASSWORD = "phone authentication1";
     public static String USER_DEFAULT_EMAIL_DOMAIN = "@offersky.com";
 
+
     public interface FirebaseKeys
     {
         static String COUPON_KEY = "coupons";
