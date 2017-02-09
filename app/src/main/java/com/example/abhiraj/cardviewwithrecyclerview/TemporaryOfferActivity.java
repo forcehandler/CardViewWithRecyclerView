@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-public class TemporaryOfferActivity extends AppCompatActivity implements OfferFragment.OffersFragmentListener{
+public class TemporaryOfferActivity extends AppCompatActivity implements OfferSkyOfferFragment.OnFragmentInteractionListener{
 
     private final String TAG = TemporaryOfferActivity.class.getSimpleName();
     @Override
@@ -39,7 +39,7 @@ public class TemporaryOfferActivity extends AppCompatActivity implements OfferFr
             // Adding fragment to the frame Layout
             // Add the fragment to the 'fragment_container' FrameLayout
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.offer_fragment_container, offerFragment).commit();
+                    .add(R.id.offer_fragment_container, offerSkyOfferFragment).commit();
         }
     }
 
