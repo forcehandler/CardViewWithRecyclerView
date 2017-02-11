@@ -1,6 +1,7 @@
 package com.example.abhiraj.cardviewwithrecyclerview.signup;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,15 @@ import android.widget.Toast;
 
 import com.example.abhiraj.cardviewwithrecyclerview.R;
 import com.example.abhiraj.cardviewwithrecyclerview.TemporaryOfferActivity;
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.Profile;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -24,9 +34,17 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.UserInfo;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class GoogleSignInActivity extends AppCompatActivity implements View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
 
@@ -34,6 +52,7 @@ public class GoogleSignInActivity extends AppCompatActivity implements View.OnCl
 
     // Sign in button
     private SignInButton mSignInButton;
+    private LoginButton fbLoginButton;
 
     // Firebase Authentication object
     private FirebaseAuth mFirebaseAuth;
@@ -54,6 +73,9 @@ public class GoogleSignInActivity extends AppCompatActivity implements View.OnCl
     private TextView mName;
     private TextView mEmail;
 
+    // Fb Callback manager
+    CallbackManager mCallbackManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +89,17 @@ public class GoogleSignInActivity extends AppCompatActivity implements View.OnCl
         mSignInButton  =(SignInButton) findViewById(R.id.google_sign_in_button);
         mSignInButton.setSize(SignInButton.SIZE_STANDARD);
         mSignInButton.setOnClickListener(this);
+
+        // Initializing fb sign in button
+        fbLoginButton = (LoginButton) findViewById(R.id.fb_login_button);
+        fbLoginButton.setOnClickListener(this);
+
+        // Setting up fb read permissions
+        List<String> permissionNeeds = Arrays.asList("email", "public_profile");
+        fbLoginButton.setReadPermissions(permissionNeeds);
+
+        // Initializing fb callback manager
+        mCallbackManager = CallbackManager.Factory.create();
 
         // Initialize Firebase Auth
         mFirebaseAuth = FirebaseAuth.getInstance();
@@ -86,6 +119,32 @@ public class GoogleSignInActivity extends AppCompatActivity implements View.OnCl
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
+
+    }
+
+
+    private void handleFacebookAccessToken(AccessToken accessToken) {
+        Log.d(TAG, "handleFacebookAccessToken:" + accessToken);
+
+        AuthCredential credential = FacebookAuthProvider.getCredential(accessToken.getToken());
+        mFirebaseAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
+
+                        // If sign in fails, display a message to the user. If sign in succeeds
+                        // the auth state listener will be notified and logic to handle the
+                        // signed in user can be handled in the listener.
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "signInWithCredential", task.getException());
+                            Toast.makeText(GoogleSignInActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
+                        // ...
+                    }
+                });
     }
 
     // [START setupFirebaseAuthStateListener]
@@ -99,12 +158,36 @@ public class GoogleSignInActivity extends AppCompatActivity implements View.OnCl
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
 
+                    // TODO: Testing user detail from firebase Remove this if it fails
+                    for (UserInfo profile : user.getProviderData()) {
+                        // Id of the provider (ex: google.com)
+                        String providerId = profile.getProviderId();
+
+                        Log.d(TAG, "provider id from firebase " + providerId);
+
+                        // UID specific to the provider
+                        String uid = profile.getUid();
+                        Log.d(TAG, "user uid from firebase " + uid);
+
+                        // Name, email address, and profile photo Url
+                        String name = profile.getDisplayName();
+                        String email = profile.getEmail();
+                        Uri photoUrl = profile.getPhotoUrl();
+
+                        Log.d(TAG, "user name from firebase " + name);
+                        Log.d(TAG, "user email from firebase " + email);
+                        if(photoUrl != null)
+                        Log.d(TAG, "user photo url from firebase " + photoUrl.toString());
+                    };
+
                     // TODO: Move to next activity
                     // Move to next Activity
                     Intent intent = new Intent(GoogleSignInActivity.this, TemporaryOfferActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
+
+                    // TODO: Remove the commented code below after testing google and fb login
+                    //startActivity(intent);
+                    //finish();
 
                 } else {
                     // User is signed out
@@ -144,6 +227,10 @@ public class GoogleSignInActivity extends AppCompatActivity implements View.OnCl
             // function to handle sign in
             handleSignInResult(result);
 
+        }
+        else
+        {
+            mCallbackManager.onActivityResult(requestCode, resultCode, data);
         }
     }
 
@@ -200,13 +287,84 @@ public class GoogleSignInActivity extends AppCompatActivity implements View.OnCl
     }
     // [END firebaseAuthWithGoogle]
 
+    // [START registerCallbackWithFbLogin]
+    private void registerCallbackWithFbLogin() {
+
+        fbLoginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Log.d(TAG, "facebook:onSuccess:" + loginResult);
+                setFacebookData(loginResult);
+                handleFacebookAccessToken(loginResult.getAccessToken());
+            }
+
+            @Override
+            public void onCancel() {
+                Log.d(TAG, "facebook:onCancel");
+                // ...
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Log.d(TAG, "facebook:onError", error);
+                // ...
+            }
+        });
+    }
+    // [END registerCallbackWithFbLogin]
+
+    private void setFacebookData(LoginResult loginResult)
+    {
+        GraphRequest request = GraphRequest.newMeRequest(
+                loginResult.getAccessToken(),
+                new GraphRequest.GraphJSONObjectCallback() {
+                    @Override
+                    public void onCompleted(JSONObject object, GraphResponse response) {
+                        // Application code
+                        try {
+                            Log.i("Response",response.toString());
+
+                            String email = response.getJSONObject().getString("email");
+                            String firstName = response.getJSONObject().getString("first_name");
+                            String lastName = response.getJSONObject().getString("last_name");
+                            String gender = response.getJSONObject().getString("gender");
+                            String bday= response.getJSONObject().getString("birthday");
+
+                            Profile profile = Profile.getCurrentProfile();
+                            String id = profile.getId();
+                            String link = profile.getLinkUri().toString();
+                            Log.i("Link",link);
+                            if (Profile.getCurrentProfile()!=null)
+                            {
+                                Log.i("Login", "ProfilePic" + Profile.getCurrentProfile().getProfilePictureUri(200, 200));
+                            }
+
+                            Log.i("Login" + "Email", email);
+                            Log.i("Login"+ "FirstName", firstName);
+                            Log.i("Login" + "LastName", lastName);
+                            Log.i("Login" + "Gender", gender);
+                            Log.i("Login" + "Bday", bday);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+    }
+
     @Override
     public void onClick(View v) {
         if(v == mSignInButton)
         {
             signIn();
         }
+        else if(v == fbLoginButton)
+        {
+            // registerCallback with the fb login button
+            registerCallbackWithFbLogin();
+        }
     }
+
 
     @Override
     public void onStart() {

@@ -3,39 +3,30 @@
 
     <item
         is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.1\jars\libs\internal_impl-25.0.1.jar"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="3af8cc51ef7088e56f132780da8c0bd858b6a6ad">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_4a4e4221f69e39f2825f3b7010d5584270df608e\classes.dex" />
+        sha1="15b049fedbd8e3926bf99d9e45dfc9b2a1043bb9">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.1.1_cfc6a7a48b3a4e9357da874d849ed983a04dcf37\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.1\jars\classes.jar"
+        jar="C:\Users\Abhiraj\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.1\support-annotations-25.1.1.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.0.1_f90de9cf880c07f31739dd5e1f51679e5c88267b\classes.dex" />
+        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.1_578f4312d6d0c523fbf6fce4f6793b584de6fb2e\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.1\jars\libs\internal_impl-25.0.1.jar"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_979dab34d316b135c6757e9312c9f6c3a49870a7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="51eba4a4dd73044f90a9d58dd7ca34adbebfcf4e">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.0.1_c4e76f9897caefe45bdccdcf455b5e0c4ace200e\classes.dex" />
+        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.1_1beaf9d751ecb58ef7cfde54ea64b14fcc06aea4\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -48,21 +39,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.1\jars\libs\internal_impl-25.0.1.jar"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_d587b1d19fed464d5bb5792b139c79579151e490\classes.dex" />
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.1_695876f2e8864fdbe9f456e887628f84734a64ed\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.1\jars\classes.jar"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="bc7e99e8d0fc279a05aa91378530f467ad62d443">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.0.1_c9a06cc32ca666af82662b970e2e35510f58bfb5\classes.dex" />
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.1_84d1d29bb2e4050e83282996666fff482e32c65e\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -70,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="1328ce05881a58218bbfdd51b563fef41ece8fe9">
+        sha1="5d1c12df8dfcce9a72b6ed80a453e5da273f9a3e">
         <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_9baab026ba1473ec97411f6f5e470b807b6c0050\classes.dex" />
     </item>
     <item
@@ -93,6 +84,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.1_0ed9c00834fa5ed1a19b2a3c6d5bc8a7d4c2fd12\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.firebaseui\firebase-ui-database\1.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -111,21 +111,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.0.1\jars\classes.jar"
+        jar="C:\Users\Abhiraj\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="b24e1c688744078e1fa833ffadf696794761bbe5">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.0.1_46b1041b8953621863663b7262d5994caf24cc95\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.4.0_ce719cc30570cb5e207767e2f47328cda39b80dd\classes.dex" />
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-tasks-1.4.0_c8ab6ba2543e56447147b119758f437bb392ec06\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -147,12 +138,39 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.1\jars\classes.jar"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="6a1479afe9f1b3645e1cd9a87318976893472818">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.0.1_d4126ca8b1685666719d9b5f42a171fa79c3ed94\classes.dex" />
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.1_b8030e91c2bfb1230542a29b6df79afa19b69508\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Abhiraj\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-applinks-1.4.0_40bd735f072554ddcc8719b2eae22b0ef3b9fb21\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.1_6929e6140afcc5083fe41fa997ae7a5e6df24451\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\design\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="cd7951e04cfb9a8bf008d544a478d9a8d8192d38">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.1.1_b743d24e0db2bdcf101487118bd9ee5af0b60f43\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -165,12 +183,39 @@
     </item>
     <item
         is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.1_34c56f40bcecedbf41c2c752537b0a6a64359978\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Abhiraj\.gradle\caches\modules-2\files-2.1\joda-time\joda-time\2.9.4\1c295b462f16702ebe720bbb08f62e1ba80da41b\joda-time-2.9.4.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="1c295b462f16702ebe720bbb08f62e1ba80da41b">
         <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\joda-time-2.9.4_8174424276d7016719d6055b175e74ae8b6a85dc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\customtabs\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="94ba691efc31bf53264db0716d9c9ec03843ea31">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-customtabs-25.0.0_3c2b2e7fe7ff2c33499b9b55e952bd78e0668e9c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.19.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c6047a34af07d6ec4e950ba1dc70ce23ac65ecaa">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.android-facebook-android-sdk-4.19.0_1d35acc56f1ebbeb2f0b38fd3e1d920abc27ded1\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -192,30 +237,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.0.1\jars\classes.jar"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="f7ac4b327fdb9e2ee386f5adc46164927658de4b">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.0.1_52dc58f3ea5744d54bbe5747190d16d8f4275b99\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Abhiraj\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.0.1\support-annotations-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="a09194311f8f89c3e6db09d79f50897a889d615e">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.0.1_444343bf47fcd7e3bef8b136e8cfef5b8320e934\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.1\jars\libs\internal_impl-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="f83b00041ecfba705603fec40363416c7de69719">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_627fa1585c7fb46f41aebfb2d689d7d61d55f442\classes.dex" />
+        sha1="c9649557905bf7a80fca9e0d54cbcb7662627860">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.1.1_578a39bdfcc94825e79145325f3c36c2e4f21377\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -241,17 +268,8 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="571447be7052bc7b66a5d999446b11601cc0e701">
+        sha1="8c4ac3914ea6e7505e22286b92b93eaa3780a075">
         <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_44c921f0e32a14600a387607a257feca7950ac05\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="297d4bcf6ed4e747a1bf7d0d094a2d911a8d3a8e">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.0.1_f0639b135fc871d21cc04fb34d8b3d4b7f20a8d6\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -264,12 +282,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.1\jars\libs\internal_impl-25.0.1.jar"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="c5b7145fb34779b6639147b8f2f8dd77c0db771b">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_42e7bd7ec1750d62ba323d8990c0b4b31491ad2d\classes.dex" />
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.1_b2f58cbbedbdfd8ddf5c97902fb9642c65e4cbc9\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -282,30 +300,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.0.1_4c3754566b496fdf2d80fa74589a85a5894b65f3\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
         <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-10.0.1_d4eca55a31f87f0337b2fc7575929198e5f1a1e9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.0.1_b86881c6d50e90032be53d3fd59a67062cc44a39\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -327,15 +327,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="00d4c8eebf2b681073c72a26bd0849549e51c7cb">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.0.1_e66b741d265b3c775e1adf37f114fac35eeda20a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -345,12 +336,30 @@
     </item>
     <item
         is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a8ae156c2726ac9c56daaf4b49452ec2cdb7bba9">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-25.1.1_37177f6fc5a1291bde79da360b7ca49788c23c4d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
         <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.0.1_7af6db83ac993fbbd8c219cad3dd9a1d36ca6150\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.1_dac94ac95b5a554ba737fc753cb2339f0416de7b\classes.dex" />
     </item>
 
 </items>
