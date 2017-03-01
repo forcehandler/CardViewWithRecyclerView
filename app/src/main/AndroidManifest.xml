@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-        android:name=".OfferSkyHitchBeacon"
+        android:name=".database.OfferSkyHitchBeacon"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,19 +16,19 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>
 
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".CreateAccountActivity">
+        <activity android:name=".ui.MainActivity"/>
+        <activity android:name=".signup.CreateAccountActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"/>
-        <activity android:name=".TemporaryOfferActivity">
+        <activity android:name=".signup.LoginActivity"/>
+        <activity android:name=".ui.TemporaryOfferActivity">
         </activity>
         <activity
-            android:name=".SplashActivity"
+            android:name=".ui.SplashActivity"
             android:theme="@style/SplashTheme">
         </activity>
         <activity android:name=".BaseActivity">
@@ -44,6 +44,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".OffersAndCouponsActivity">
+        </activity>
+        <activity
+            android:name=".ui.HomeDrawerActivity"
+            android:label="@string/title_activity_home_drawer"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
     </application>
 

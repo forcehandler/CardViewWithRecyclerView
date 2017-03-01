@@ -6,7 +6,7 @@
     android:id="@+id/activity_temporary_offer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.abhiraj.cardviewwithrecyclerview.TemporaryOfferActivity">
+    tools:context="com.example.abhiraj.cardviewwithrecyclerview.ui.TemporaryOfferActivity">
     <FrameLayout
         android:id="@+id/offer_fragment_container"
         android:layout_width="match_parent"

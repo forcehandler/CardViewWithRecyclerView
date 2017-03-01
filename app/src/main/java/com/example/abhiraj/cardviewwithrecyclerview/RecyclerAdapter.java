@@ -10,6 +10,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.abhiraj.cardviewwithrecyclerview.database.MyFireBaseDatabase;
+import com.example.abhiraj.cardviewwithrecyclerview.database.MySharedPreferences;
+import com.example.abhiraj.cardviewwithrecyclerview.models.Coupon;
+import com.example.abhiraj.cardviewwithrecyclerview.models.User;
+import com.example.abhiraj.cardviewwithrecyclerview.ui.MainActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.squareup.picasso.Picasso;
 

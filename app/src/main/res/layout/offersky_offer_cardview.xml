@@ -62,7 +62,7 @@
                 android:padding="5dp"
                 android:layout_height="match_parent">
 
-                <com.example.abhiraj.cardviewwithrecyclerview.FeedImageView
+                <com.example.abhiraj.cardviewwithrecyclerview.ui.FeedImageView
                     android:id="@+id/imageViewfav"
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
@@ -71,7 +71,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <com.example.abhiraj.cardviewwithrecyclerview.FeedImageView
+        <com.example.abhiraj.cardviewwithrecyclerview.ui.FeedImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

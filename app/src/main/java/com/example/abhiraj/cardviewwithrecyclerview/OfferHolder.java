@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.abhiraj.cardviewwithrecyclerview.models.OfferSkyOffers;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -37,6 +38,14 @@ public class OfferHolder extends RecyclerView.ViewHolder {
                 Toast.makeText(itemView.getContext(), "Coming Soon", Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    public void bindViews(OfferSkyOffers model)
+    {
+        setmBrandImageIv(model.getLogoURI());
+        setmMainImageIv(model.getUid());
+        setmBrandTitleTv(model.getTitle());
+        setmDescriptionTv(model.getOffer());
     }
 
     public void setmMainImageIv(String url)

@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
+import com.example.abhiraj.cardviewwithrecyclerview.models.OfferSkyOffers;
+import com.example.abhiraj.cardviewwithrecyclerview.ui.FeedImageView;
 
 /**
  * Created by Abhiraj on 01-02-2017.

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.abhiraj.cardviewwithrecyclerview.R;
-import com.example.abhiraj.cardviewwithrecyclerview.TemporaryOfferActivity;
+import com.example.abhiraj.cardviewwithrecyclerview.ui.TemporaryOfferActivity;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
