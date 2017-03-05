@@ -43,12 +43,14 @@
                 <data android:scheme="@string/fb_login_protocol_scheme"/>
             </intent-filter>
         </activity>
-        <activity android:name=".OffersAndCouponsActivity">
+        <activity android:name=".ui.OffersAndCouponsActivity">
         </activity>
         <activity
             android:name=".ui.HomeDrawerActivity"
             android:label="@string/title_activity_home_drawer"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity android:name=".ui.DetailsActivity">
         </activity>
     </application>
 

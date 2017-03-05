@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.abhiraj.cardviewwithrecyclerview.database.OfferSkyHitchBeacon;
-import com.example.abhiraj.cardviewwithrecyclerview.OfferSkyOfferVH;
+import com.example.abhiraj.cardviewwithrecyclerview.ViewHolder.OfferSkyOfferVH;
 import com.example.abhiraj.cardviewwithrecyclerview.R;
 import com.example.abhiraj.cardviewwithrecyclerview.models.OfferSkyOffers;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;

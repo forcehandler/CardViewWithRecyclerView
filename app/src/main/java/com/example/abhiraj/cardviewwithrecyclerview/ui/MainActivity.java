@@ -15,7 +15,7 @@ import com.example.abhiraj.cardviewwithrecyclerview.Constants;
 import com.example.abhiraj.cardviewwithrecyclerview.database.MyFireBaseDatabase;
 import com.example.abhiraj.cardviewwithrecyclerview.database.MySharedPreferences;
 import com.example.abhiraj.cardviewwithrecyclerview.R;
-import com.example.abhiraj.cardviewwithrecyclerview.RecyclerAdapter;
+import com.example.abhiraj.cardviewwithrecyclerview.adapters.RecyclerAdapter;
 import com.example.abhiraj.cardviewwithrecyclerview.models.Coupon;
 import com.example.abhiraj.cardviewwithrecyclerview.models.User;
 import com.example.abhiraj.cardviewwithrecyclerview.signup.LoginActivity;

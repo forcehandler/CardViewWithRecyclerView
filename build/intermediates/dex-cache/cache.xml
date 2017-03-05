@@ -295,7 +295,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="de32b1a4ef1981889190068b5c6c417949d819a6">
+        sha1="2cc73c26ce04d85ca49c6dd5e008922f8facdd3c">
         <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_9baab026ba1473ec97411f6f5e470b807b6c0050\classes.dex" />
     </item>
     <item
@@ -336,15 +336,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.19.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="c6047a34af07d6ec4e950ba1dc70ce23ac65ecaa">
-        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.android-facebook-android-sdk-4.19.0_1d35acc56f1ebbeb2f0b38fd3e1d920abc27ded1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -376,7 +367,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="d9a28e390d1799582372bf78713891cd19e9d3f0">
+        sha1="5c96b8347203a6002371dab225f023cbcf6ab47e">
         <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_44c921f0e32a14600a387607a257feca7950ac05\classes.dex" />
     </item>
     <item
@@ -414,6 +405,15 @@
         revision="23.0.3"
         sha1="7052283359001bb108753cb0583a887d3bf94c82">
         <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.1.2_47050e7c272fe9f56848272f1ed4c95c27f6905d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\CardViewWithRecyclerView\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.20.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="cb2ef781533c3f11c4e80341cbaebad275c66586">
+        <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.android-facebook-android-sdk-4.20.0_ad134ad084b77b8345d7a58a034b041f774540a3\classes.dex" />
     </item>
     <item
         is-multidex="true"

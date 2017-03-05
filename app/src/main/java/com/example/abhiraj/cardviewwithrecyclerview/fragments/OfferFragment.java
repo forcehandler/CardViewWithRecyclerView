@@ -12,8 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.abhiraj.cardviewwithrecyclerview.OfferHolder;
 import com.example.abhiraj.cardviewwithrecyclerview.R;
+import com.example.abhiraj.cardviewwithrecyclerview.ViewHolder.OfferHolder;
 import com.example.abhiraj.cardviewwithrecyclerview.models.OfferSkyOffers;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -99,7 +99,7 @@ public class OfferFragment extends Fragment implements SwipeRefreshLayout.OnRefr
 
         Log.d(TAG, "in OnCreateView setting up recycler view firebase");
         RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.offer_fragment_rv);
-        recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext(), LinearLayoutManager.HORIZONTAL, false));
         //recyclerView.setHasFixedSize(true);
 
 
