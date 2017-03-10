@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_add_coupons"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.abhiraj.cardviewwithrecyclerview.write.AddCoupons">
+
+    <EditText
+        android:id="@+id/state_key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="state key"
+        android:inputType="textCapCharacters"/>
+
+    <EditText
+        android:id="@+id/city_key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="city key"
+        android:inputType="number"
+        android:layout_below="@id/state_key"/>
+
+    <EditText
+        android:id="@+id/mall_key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="mall key"
+        android:layout_below="@id/city_key"/>
+
+    <EditText
+        android:id="@+id/shop_key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="shop key"
+        android:inputType="textCapCharacters"
+        android:layout_below="@id/mall_key"/>
+
+    <EditText
+        android:id="@+id/coupon_key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="coupon key"
+        android:inputType="textCapCharacters"
+        android:layout_below="@id/shop_key"/>
+
+    <EditText
+        android:id="@+id/coupon_brand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="coupon_brand"
+        android:layout_below="@id/coupon_key"/>
+
+    <EditText
+        android:id="@+id/coupon_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="coupon_code"
+        android:inputType="textCapCharacters"
+        android:layout_below="@id/coupon_brand"/>
+
+    <EditText
+        android:id="@+id/coupon_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="coupon_description"
+        android:inputType="text"
+        android:layout_below="@id/coupon_code"/>
+
+    <EditText
+        android:id="@+id/coupon_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="coupon price"
+        android:inputType="number"
+        android:layout_below="@id/coupon_description"/>
+    <EditText
+        android:id="@+id/coupon_image_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="coupon image url"
+        android:inputType="textWebEditText"
+        android:layout_below="@id/coupon_price"/>
+
+    <EditText
+        android:id="@+id/coupon_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="category"
+        android:inputType="textWebEditText"
+        android:layout_below="@id/coupon_image_url"/>
+
+    <Button
+        android:id="@+id/okBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:text="Ok"/>
+
+</RelativeLayout>

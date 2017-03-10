@@ -3,7 +3,6 @@ package com.example.abhiraj.cardviewwithrecyclerview.ui;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.FrameLayout;
@@ -39,14 +38,14 @@ public class DetailsActivity extends AppCompatActivity implements OfferFragment.
             setSupportActionBar(mToolbar);
         }
 
-        horiz_offer_container = (FrameLayout) findViewById(R.id.horiz_offer_container);
+        /*horiz_offer_container = (FrameLayout) findViewById(R.id.horiz_offer_container);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
-        OfferFragment offerFragment = new OfferFragment();
+        OfferFragment offerFragment = OfferFragment.newInstance("chaat");
 
         fragmentTransaction.add(horiz_offer_container.getId(), offerFragment);
-        fragmentTransaction.commit();
+        fragmentTransaction.commit();*/
 
 
     }

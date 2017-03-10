@@ -295,7 +295,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="2cc73c26ce04d85ca49c6dd5e008922f8facdd3c">
+        sha1="dbf05394754677a7af71a5c4e04028be8dd51a98">
         <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_9baab026ba1473ec97411f6f5e470b807b6c0050\classes.dex" />
     </item>
     <item
@@ -367,7 +367,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="5c96b8347203a6002371dab225f023cbcf6ab47e">
+        sha1="000b211d74d3ef4511592ce278aa602bbb0c697b">
         <dex dex="E:\CardViewWithRecyclerView\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_44c921f0e32a14600a387607a257feca7950ac05\classes.dex" />
     </item>
     <item

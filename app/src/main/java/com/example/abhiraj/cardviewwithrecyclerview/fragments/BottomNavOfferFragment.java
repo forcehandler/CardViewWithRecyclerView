@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.abhiraj.cardviewwithrecyclerview.BuildConfig;
+import com.example.abhiraj.cardviewwithrecyclerview.Constants;
 import com.example.abhiraj.cardviewwithrecyclerview.R;
 import com.ncapdevi.fragnav.FragNavController;
 
@@ -32,8 +35,10 @@ public class BottomNavOfferFragment extends Fragment implements OfferSkyOfferFra
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String BOTTOM_MENU_LAYOUT_SELECT = "bottom_menu_select";
+    private static final String CATEGORY1_KEY = "param1";
+    private static final String CATEGORY2_KEY = "param2";
+    private static final String CATEGORY3_KEY = "param3";
 
     private BottomNavigationView mBottomNavigationView;
 
@@ -47,8 +52,10 @@ public class BottomNavOfferFragment extends Fragment implements OfferSkyOfferFra
     private final int TAB_THIRD = FragNavController.TAB3;
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private String bottom_menu_layout_select;
+    private String category1;
+    private String category2;
+    private String category3;
 
     private OnFragmentInteractionListener mListener;
 
@@ -60,16 +67,18 @@ public class BottomNavOfferFragment extends Fragment implements OfferSkyOfferFra
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     * @param category1 Parameter 1.
+     * @param category2 Parameter 2.
      * @return A new instance of fragment BottomNavOfferFragment.
      */
-    // TODO: Rename and change types and number of parameters
-    public static BottomNavOfferFragment newInstance(String param1, String param2) {
+
+    public static BottomNavOfferFragment newInstance(String bottom_menu_layout, String category1, String category2, String category3) {
         BottomNavOfferFragment fragment = new BottomNavOfferFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString(BOTTOM_MENU_LAYOUT_SELECT, bottom_menu_layout);
+        args.putString(CATEGORY1_KEY, category1);
+        args.putString(CATEGORY2_KEY, category2);
+        args.putString(CATEGORY3_KEY, category3);
         fragment.setArguments(args);
         return fragment;
     }
@@ -78,8 +87,17 @@ public class BottomNavOfferFragment extends Fragment implements OfferSkyOfferFra
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            bottom_menu_layout_select = getArguments().getString(BOTTOM_MENU_LAYOUT_SELECT);
+            category1 = getArguments().getString(CATEGORY1_KEY);
+            category2 = getArguments().getString(CATEGORY2_KEY);
+            category3 = getArguments().getString(CATEGORY3_KEY);
+
+            if(BuildConfig.DEBUG)
+            {
+                Log.d(TAG, "category1="+category1);
+                Log.d(TAG, "category2="+category2);
+                Log.d(TAG, "category3="+category3);
+            }
         }
 
         // FragNav
@@ -87,13 +105,15 @@ public class BottomNavOfferFragment extends Fragment implements OfferSkyOfferFra
         bottomFragments = new ArrayList<>(3);
 
         // Add frags to the list
-        bottomFragments.add(new OfferSkyOfferFragment());
-        bottomFragments.add(new OfferFragment());
-        bottomFragments.add(new OfferFragment());
+        //bottomFragments.add(new OfferSkyOfferFragment());
+        bottomFragments.add(OfferFragment.newInstance(category1));
+        bottomFragments.add(OfferFragment.newInstance(category2));
+        bottomFragments.add(OfferFragment.newInstance(category3));
 
         // Link fragments to container
         mFragNavController = new FragNavController(savedInstanceState, getChildFragmentManager(),
                 R.id.bottomFragsContainer, bottomFragments, TAB_FIRST);
+
     }
 
     @Override
@@ -104,24 +124,37 @@ public class BottomNavOfferFragment extends Fragment implements OfferSkyOfferFra
         mBottomNavigationView = (BottomNavigationView)
                 root.findViewById(R.id.bottom_navigation);
 
+        // Select the bottom nav item menu
+        if(bottom_menu_layout_select == Constants.BOTTOM_MENU_CLOTHES_MENU)
+        {
+            mBottomNavigationView.inflateMenu(R.menu.bottom_navigation_clothes);
+        }
+        else if(bottom_menu_layout_select == Constants.BOTTOM_MENU_FOOD_MENU) {
+            mBottomNavigationView.inflateMenu(R.menu.bottom_navigation_menu_food);
+        }
+
+
+
         mBottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
-                            case R.id.action_favorites:
+                            case R.id.action_first:
                                 mFragNavController.switchTab(TAB_FIRST);
                                 break;
-                            case R.id.action_schedules:
+                            case R.id.action_second:
                                 mFragNavController.switchTab(TAB_SECOND);
                                 break;
-                            case R.id.action_music:
+                            case R.id.action_third:
                                 mFragNavController.switchTab(TAB_THIRD);
                                 break;
                         }
                         return true;
                     }
                 });
+
+
         return root;
     }
 
@@ -167,5 +200,10 @@ public class BottomNavOfferFragment extends Fragment implements OfferSkyOfferFra
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    public Fragment getCurrentFragment()
+    {
+        return mFragNavController.getCurrentFrag();
     }
 }

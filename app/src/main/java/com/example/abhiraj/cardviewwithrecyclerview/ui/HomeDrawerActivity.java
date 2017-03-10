@@ -2,6 +2,7 @@ package com.example.abhiraj.cardviewwithrecyclerview.ui;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -25,11 +26,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.abhiraj.cardviewwithrecyclerview.BuildConfig;
+import com.example.abhiraj.cardviewwithrecyclerview.Constants;
 import com.example.abhiraj.cardviewwithrecyclerview.Godlike;
 import com.example.abhiraj.cardviewwithrecyclerview.R;
 import com.example.abhiraj.cardviewwithrecyclerview.fragments.BottomNavOfferFragment;
 import com.example.abhiraj.cardviewwithrecyclerview.fragments.OfferFragment;
 import com.example.abhiraj.cardviewwithrecyclerview.fragments.OfferSkyOfferFragment;
+import com.example.abhiraj.cardviewwithrecyclerview.write.AddToFirebase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,13 +74,18 @@ public class HomeDrawerActivity extends AppCompatActivity
 
 
 
-        Godlike.getCoupons("GA_0832_MDG");
+        Godlike.getShops(getApplicationContext(), "UP_0522_FR");
+
 
         mViewPager  =(ViewPager) findViewById(R.id.pager);
 
         myFragmentPagerAdapter = new HomeDrawerActivity.MyFragmentPagerAdapter(getSupportFragmentManager());
-        myFragmentPagerAdapter.addFragment(new BottomNavOfferFragment(), "Bottom1");
-        myFragmentPagerAdapter.addFragment(new BottomNavOfferFragment(), "Bottom2");
+
+        myFragmentPagerAdapter.addFragment(BottomNavOfferFragment.newInstance(Constants.BOTTOM_MENU_FOOD_MENU,
+                "chaat","icecream","drinks"), "Food");
+        myFragmentPagerAdapter.addFragment(BottomNavOfferFragment.newInstance(Constants.BOTTOM_MENU_CLOTHES_MENU,
+                "formals","shoes","sarees"), "Clothes");
+
         //myFragmentPagerAdapter.addFragment(new OfferSkyOfferFragment(), "Offer2");
 
         mViewPager.setAdapter(myFragmentPagerAdapter);
@@ -122,13 +131,15 @@ public class HomeDrawerActivity extends AppCompatActivity
             case R.id.action_favourite:
                 Toast.makeText(this, "You're my favourite", Toast.LENGTH_SHORT)
                         .show();
-                /*mBottomNavigationView.inflateMenu(R.menu.bottom_navigation_menu_alt);*/
+                /*mBottomNavigationView.inflateMenu(R.menu.bottom_navigation_menu_food);*/
                 return true;
 
             case R.id.action_settings:
                 Toast.makeText(this, "Settings under construction", Toast.LENGTH_SHORT)
                         .show();
-                /*mBottomNavigationView.inflateMenu(R.menu.bottom_navigation_main);*/
+                Intent intent = new Intent(this, AddToFirebase.class);
+                startActivity(intent);
+                /*mBottomNavigationView.inflateMenu(R.menu.bottom_navigation_clothes);*/
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -138,12 +149,46 @@ public class HomeDrawerActivity extends AppCompatActivity
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-        return false;
+
+        Fragment currentFragment = myFragmentPagerAdapter.getRegisteredFragment(mViewPager.getCurrentItem());
+        if(currentFragment != null)
+        {
+            if(currentFragment instanceof OfferFragment)
+            {
+                OfferFragment offerFrag = (OfferFragment) currentFragment;
+                offerFrag.beginSearch(query);
+            }
+        }
+        return true;
     }
 
     @Override
     public boolean onQueryTextChange(String newText) {
-        return false;
+
+        Fragment bottomFragment = myFragmentPagerAdapter.getRegisteredFragment(mViewPager.getCurrentItem());
+        Fragment currentFragment = null;
+        if(bottomFragment instanceof BottomNavOfferFragment)
+        {
+            if (BuildConfig.DEBUG)
+                Log.d(TAG, "instance Of BottomNavOfferFragment");
+
+            currentFragment = ((BottomNavOfferFragment) bottomFragment).getCurrentFragment();
+        }
+        if(currentFragment != null)
+        {
+            if(currentFragment instanceof OfferFragment)
+            {
+                if (BuildConfig.DEBUG)
+                    Log.d(TAG, "instance Of OfferFragment");
+
+                OfferFragment offerFrag = (OfferFragment) currentFragment;
+
+                if (BuildConfig.DEBUG)
+                    Log.d(TAG, "category of frag obtained" + offerFrag.getCategory());
+                offerFrag.beginSearch(newText);
+            }
+        }
+        return true;
     }
 
     @Override
@@ -177,6 +222,12 @@ public class HomeDrawerActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 
 
@@ -234,8 +285,4 @@ public class HomeDrawerActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
 }

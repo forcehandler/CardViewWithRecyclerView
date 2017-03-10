@@ -54,7 +54,7 @@ public class OffersAndCouponsActivity extends AppCompatActivity implements Offer
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offers_and_coupons);
 
-        Godlike.getCoupons("GA_0832_MDG");
+        Godlike.getCoupons(getApplicationContext(), "GA_0832_MDG");
 
         mToolbar = (Toolbar) findViewById(R.id.main_activity_toolbar);
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
@@ -144,13 +144,13 @@ public class OffersAndCouponsActivity extends AppCompatActivity implements Offer
             case R.id.action_favourite:
                 Toast.makeText(this, "You're my favourite", Toast.LENGTH_SHORT)
                         .show();
-                /*mBottomNavigationView.inflateMenu(R.menu.bottom_navigation_menu_alt);*/
+                /*mBottomNavigationView.inflateMenu(R.menu.bottom_navigation_menu_food);*/
                 return true;
 
             case R.id.action_settings:
                 Toast.makeText(this, "Settings under construction", Toast.LENGTH_SHORT)
                         .show();
-                /*mBottomNavigationView.inflateMenu(R.menu.bottom_navigation_main);*/
+                /*mBottomNavigationView.inflateMenu(R.menu.bottom_navigation_clothes);*/
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

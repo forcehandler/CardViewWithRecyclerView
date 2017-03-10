@@ -52,6 +52,26 @@
         </activity>
         <activity android:name=".ui.DetailsActivity">
         </activity>
+        <activity android:name=".write.AddShop">
+        </activity>
+        <activity android:name=".write.AddState">
+        </activity>
+        <activity android:name=".write.AddCity">
+        </activity>
+        <activity android:name=".write.AddToFirebase">
+        </activity>
+        <activity android:name=".write.AddMall">
+        </activity>
+        <activity android:name=".write.AddCoupons">
+        </activity>
+        <activity android:name=".write.AddCategories">
+        </activity>
+
+        <service android:name=".services.MyFirebaseInstanceIdService" android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
