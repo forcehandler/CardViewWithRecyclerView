@@ -31,7 +31,7 @@ import com.example.abhiraj.cardviewwithrecyclerview.Constants;
 import com.example.abhiraj.cardviewwithrecyclerview.Godlike;
 import com.example.abhiraj.cardviewwithrecyclerview.R;
 import com.example.abhiraj.cardviewwithrecyclerview.fragments.BottomNavOfferFragment;
-import com.example.abhiraj.cardviewwithrecyclerview.fragments.OfferFragment;
+import com.example.abhiraj.cardviewwithrecyclerview.fragments.ShopFragment;
 import com.example.abhiraj.cardviewwithrecyclerview.fragments.OfferSkyOfferFragment;
 import com.example.abhiraj.cardviewwithrecyclerview.write.AddToFirebase;
 
@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeDrawerActivity extends AppCompatActivity
-        implements OfferFragment.OffersFragmentListener, NavigationView.OnNavigationItemSelectedListener, BottomNavOfferFragment.OnFragmentInteractionListener, OfferSkyOfferFragment.OnFragmentInteractionListener, SearchView.OnQueryTextListener, View.OnClickListener {
+        implements ShopFragment.OffersFragmentListener, NavigationView.OnNavigationItemSelectedListener, BottomNavOfferFragment.OnFragmentInteractionListener, OfferSkyOfferFragment.OnFragmentInteractionListener, SearchView.OnQueryTextListener, View.OnClickListener {
 
     private static final String TAG = HomeDrawerActivity.class.getSimpleName();
     private Toolbar mToolbar;
@@ -150,12 +150,34 @@ public class HomeDrawerActivity extends AppCompatActivity
     @Override
     public boolean onQueryTextSubmit(String query) {
 
-        Fragment currentFragment = myFragmentPagerAdapter.getRegisteredFragment(mViewPager.getCurrentItem());
+        Fragment bottomFragment = myFragmentPagerAdapter.getRegisteredFragment(mViewPager.getCurrentItem());
+        Fragment currentFragment = null;
+        if(bottomFragment instanceof BottomNavOfferFragment)
+        {
+            if (BuildConfig.DEBUG)
+                Log.d(TAG, "instance Of BottomNavOfferFragment");
+
+            currentFragment = ((BottomNavOfferFragment) bottomFragment).getCurrentFragment();
+        }
         if(currentFragment != null)
         {
-            if(currentFragment instanceof OfferFragment)
+            if(currentFragment instanceof ShopFragment)
             {
-                OfferFragment offerFrag = (OfferFragment) currentFragment;
+                if (BuildConfig.DEBUG)
+                    Log.d(TAG, "instance Of ShopFragment");
+
+                ShopFragment offerFrag = (ShopFragment) currentFragment;
+
+                if (BuildConfig.DEBUG)
+                    Log.d(TAG, "category of frag obtained" + offerFrag.getCategory());
+                ((BottomNavOfferFragment) bottomFragment).hideBottomNavBar();
+
+                if(query.isEmpty())
+                {
+                    ((BottomNavOfferFragment) bottomFragment).showBottomNavBar();
+                }
+                if (BuildConfig.DEBUG) Log.d(TAG, "query is = " + query);
+                if (BuildConfig.DEBUG) Log.d(TAG, "query length is + " + query.length());
                 offerFrag.beginSearch(query);
             }
         }
@@ -176,15 +198,25 @@ public class HomeDrawerActivity extends AppCompatActivity
         }
         if(currentFragment != null)
         {
-            if(currentFragment instanceof OfferFragment)
+            if(currentFragment instanceof ShopFragment)
             {
                 if (BuildConfig.DEBUG)
-                    Log.d(TAG, "instance Of OfferFragment");
+                    Log.d(TAG, "instance Of ShopFragment");
 
-                OfferFragment offerFrag = (OfferFragment) currentFragment;
+                ShopFragment offerFrag = (ShopFragment) currentFragment;
 
                 if (BuildConfig.DEBUG)
                     Log.d(TAG, "category of frag obtained" + offerFrag.getCategory());
+
+
+                ((BottomNavOfferFragment) bottomFragment).hideBottomNavBar();
+
+                if(newText.isEmpty())
+                {
+                    ((BottomNavOfferFragment) bottomFragment).showBottomNavBar();
+                }
+                if (BuildConfig.DEBUG) Log.d(TAG, "new query is = " + newText);
+                if (BuildConfig.DEBUG) Log.d(TAG, "new query length is + " + newText.length());
                 offerFrag.beginSearch(newText);
             }
         }

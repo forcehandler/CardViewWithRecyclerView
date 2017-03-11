@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.example.abhiraj.cardviewwithrecyclerview.fragments.OfferFragment;
+import com.example.abhiraj.cardviewwithrecyclerview.fragments.ShopFragment;
 import com.example.abhiraj.cardviewwithrecyclerview.fragments.OfferSkyOfferFragment;
 import com.example.abhiraj.cardviewwithrecyclerview.R;
 
@@ -30,11 +30,11 @@ public class TemporaryOfferActivity extends AppCompatActivity implements OfferSk
             }*/
 
             // Create a new Fragment to be placed in the activity layout
-            //OfferFragment firstFragment = new OfferFragment();
+            //ShopFragment firstFragment = new ShopFragment();
 
             //TODO: Temporarily testing OfferSky fragment with imageloader
             OfferSkyOfferFragment offerSkyOfferFragment = new OfferSkyOfferFragment();
-            OfferFragment offerFragment = new OfferFragment();
+            ShopFragment shopFragment = new ShopFragment();
             // In case this activity was started with special instructions from an
             // Intent, pass the Intent's extras to the fragment as arguments
             //firstFragment.setArguments(getIntent().getExtras());

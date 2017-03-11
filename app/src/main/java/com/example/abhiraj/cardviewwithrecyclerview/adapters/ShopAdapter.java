@@ -1,7 +1,6 @@
 package com.example.abhiraj.cardviewwithrecyclerview.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,11 +9,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.abhiraj.cardviewwithrecyclerview.R;
 import com.example.abhiraj.cardviewwithrecyclerview.models.Shop;
-import com.example.abhiraj.cardviewwithrecyclerview.ui.DetailsActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -27,7 +24,8 @@ import java.util.List;
 public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
 
     private Context mContext;
-    List<Shop> mShops;
+    private List<Shop> mShops;
+    private ShopClickListener mShopClickListener;
 
     public ShopAdapter(Context context, List<Shop> shops)
     {
@@ -35,16 +33,16 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
         mShops = shops;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder
-    {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private final String TAG = ShopAdapter.ViewHolder.class.getSimpleName();
         private ImageView mMainImageIv;
         private ImageView mBrandImageIv;
         private TextView mBrandTitleTv;
         private TextView mDescriptionTv;
         private Button mSeeMoreBtn;
+        private ShopClickListener mClickListener;
 
-        public ViewHolder(final View itemView) {
+        public ViewHolder(final View itemView, ShopClickListener clickListener) {
             super(itemView);
 
             mMainImageIv = (ImageView) itemView.findViewById(R.id.main_image);
@@ -52,15 +50,8 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
             mBrandTitleTv = (TextView) itemView.findViewById(R.id.brand_text);
             mDescriptionTv = (TextView) itemView.findViewById(R.id.description_text);
             mSeeMoreBtn  =(Button) itemView.findViewById(R.id.see_more_btn);
-
-            mSeeMoreBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(itemView.getContext(), "Coming Soon", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(itemView.getContext(), DetailsActivity.class);
-                    itemView.getContext().startActivity(intent);
-                }
-            });
+            mClickListener = clickListener;
+            mSeeMoreBtn.setOnClickListener(this);
         }
 
         public void bindViews(Shop model)
@@ -100,6 +91,15 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
         {
             mDescriptionTv.setText(description);
         }
+
+        @Override
+        public void onClick(View view) {
+
+            if(mClickListener != null)
+            {
+                mClickListener.onShopClick(view, getAdapterPosition());
+            }
+        }
     }
 
 
@@ -108,8 +108,8 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.offer_cardview, parent,false);
-        return new ViewHolder(view);
+                .inflate(R.layout.shop_cardview, parent,false);
+        return new ViewHolder(view, mShopClickListener);
     }
 
     @Override
@@ -118,10 +118,18 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
     }
 
 
-
+    public void setShopClickListener(ShopClickListener clickListener)
+    {
+        this.mShopClickListener = clickListener;
+    }
 
     @Override
     public int getItemCount() {
         return mShops.size();
+    }
+
+    public interface ShopClickListener
+    {
+        public void onShopClick(View view, int position);
     }
 }

@@ -29,4 +29,9 @@ public class Constants {
     {
         static String BROADCAST_SHOP_UPDATE = "shop_update";
     }
+
+    public interface IntentKeys
+    {
+        static String CLICKED_SHOP_KEY = "shop_position";
+    }
 }

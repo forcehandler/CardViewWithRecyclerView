@@ -24,13 +24,13 @@ import android.widget.Toast;
 import com.example.abhiraj.cardviewwithrecyclerview.Godlike;
 import com.example.abhiraj.cardviewwithrecyclerview.R;
 import com.example.abhiraj.cardviewwithrecyclerview.fragments.BottomNavOfferFragment;
-import com.example.abhiraj.cardviewwithrecyclerview.fragments.OfferFragment;
+import com.example.abhiraj.cardviewwithrecyclerview.fragments.ShopFragment;
 import com.example.abhiraj.cardviewwithrecyclerview.fragments.OfferSkyOfferFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class OffersAndCouponsActivity extends AppCompatActivity implements OfferFragment.OffersFragmentListener, SearchView.OnQueryTextListener,
+public class OffersAndCouponsActivity extends AppCompatActivity implements ShopFragment.OffersFragmentListener, SearchView.OnQueryTextListener,
         BottomNavOfferFragment.OnFragmentInteractionListener, OfferSkyOfferFragment.OnFragmentInteractionListener, View.OnClickListener {
 
     private static final String TAG = OffersAndCouponsActivity.class.getSimpleName();

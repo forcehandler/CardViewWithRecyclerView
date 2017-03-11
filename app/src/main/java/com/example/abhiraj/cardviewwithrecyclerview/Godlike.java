@@ -73,9 +73,15 @@ public class Godlike {
                     if(ds.getValue(Shop.class) instanceof Shop)
                     {
                         Shop shop = ds.getValue(Shop.class);
-                        //mShopsList.add(shop);
+                        shop.setKey(ds.getKey());
+
+                        if(BuildConfig.DEBUG){
+                            Log.d(TAG, "shop name = " + shop.getName());
+                            Log.d(TAG, "shop key = " + shop.getKey());
+                        }
+
                         alteredShops.add(shop);
-                        Log.d(TAG, "shop " + shop.getName());
+
                     }
                 }
                 mShopsList = alteredShops;

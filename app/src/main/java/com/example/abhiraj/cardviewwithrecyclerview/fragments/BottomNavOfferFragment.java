@@ -106,9 +106,9 @@ public class BottomNavOfferFragment extends Fragment implements OfferSkyOfferFra
 
         // Add frags to the list
         //bottomFragments.add(new OfferSkyOfferFragment());
-        bottomFragments.add(OfferFragment.newInstance(category1));
-        bottomFragments.add(OfferFragment.newInstance(category2));
-        bottomFragments.add(OfferFragment.newInstance(category3));
+        bottomFragments.add(ShopFragment.newInstance(category1));
+        bottomFragments.add(ShopFragment.newInstance(category2));
+        bottomFragments.add(ShopFragment.newInstance(category3));
 
         // Link fragments to container
         mFragNavController = new FragNavController(savedInstanceState, getChildFragmentManager(),
@@ -205,5 +205,19 @@ public class BottomNavOfferFragment extends Fragment implements OfferSkyOfferFra
     public Fragment getCurrentFragment()
     {
         return mFragNavController.getCurrentFrag();
+
     }
+
+    public void hideBottomNavBar()
+    {
+        if (BuildConfig.DEBUG) Log.d(TAG, "hideBottomNavBar");
+        mBottomNavigationView.setVisibility(View.INVISIBLE);
+    }
+
+    public void showBottomNavBar()
+    {
+        if (BuildConfig.DEBUG) Log.d(TAG, "showBottomNavBar");
+        mBottomNavigationView.setVisibility(View.VISIBLE);
+    }
+
 }
