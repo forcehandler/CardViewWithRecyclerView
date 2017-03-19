@@ -8,6 +8,8 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -100,6 +102,7 @@ public class BottomNavOfferFragment extends Fragment implements OfferSkyOfferFra
             }
         }
 
+
         // FragNav
 
         bottomFragments = new ArrayList<>(3);
@@ -123,6 +126,9 @@ public class BottomNavOfferFragment extends Fragment implements OfferSkyOfferFra
         View root = inflater.inflate(R.layout.fragment_bottom_nav_offer, container, false);
         mBottomNavigationView = (BottomNavigationView)
                 root.findViewById(R.id.bottom_navigation);
+
+        // to show shop and food icon toolbar
+        setHasOptionsMenu(true);
 
         // Select the bottom nav item menu
         if(bottom_menu_layout_select == Constants.BOTTOM_MENU_CLOTHES_MENU)
@@ -156,6 +162,18 @@ public class BottomNavOfferFragment extends Fragment implements OfferSkyOfferFra
 
 
         return root;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater)
+    {
+        if(bottom_menu_layout_select == Constants.BOTTOM_MENU_CLOTHES_MENU){
+            menuInflater.inflate(R.menu.tool_bar_menu, menu);
+
+            menu.findItem(R.id.action_favourite);
+
+
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -220,4 +238,8 @@ public class BottomNavOfferFragment extends Fragment implements OfferSkyOfferFra
         mBottomNavigationView.setVisibility(View.VISIBLE);
     }
 
+    public String getType()
+    {
+        return bottom_menu_layout_select;
+    }
 }

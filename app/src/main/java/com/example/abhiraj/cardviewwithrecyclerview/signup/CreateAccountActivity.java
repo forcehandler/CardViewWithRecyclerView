@@ -17,7 +17,7 @@ import com.example.abhiraj.cardviewwithrecyclerview.R;
 import com.example.abhiraj.cardviewwithrecyclerview.database.MyFireBaseDatabase;
 import com.example.abhiraj.cardviewwithrecyclerview.database.MySharedPreferences;
 import com.example.abhiraj.cardviewwithrecyclerview.models.User;
-import com.example.abhiraj.cardviewwithrecyclerview.ui.HomeDrawerActivity;
+import com.example.abhiraj.cardviewwithrecyclerview.ui.MallSelectActivity;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -157,7 +157,7 @@ public class CreateAccountActivity extends BaseActivity implements View.OnClickL
                 if (user != null) {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    Intent intent = new Intent(CreateAccountActivity.this, HomeDrawerActivity.class);
+                    Intent intent = new Intent(CreateAccountActivity.this, MallSelectActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                     finish();

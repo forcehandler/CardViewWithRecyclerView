@@ -19,13 +19,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.abhiraj.cardviewwithrecyclerview.Godlike;
 import com.example.abhiraj.cardviewwithrecyclerview.R;
 import com.example.abhiraj.cardviewwithrecyclerview.fragments.BottomNavOfferFragment;
-import com.example.abhiraj.cardviewwithrecyclerview.fragments.ShopFragment;
 import com.example.abhiraj.cardviewwithrecyclerview.fragments.OfferSkyOfferFragment;
+import com.example.abhiraj.cardviewwithrecyclerview.fragments.ShopFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -142,14 +141,14 @@ public class OffersAndCouponsActivity extends AppCompatActivity implements ShopF
         switch(item.getItemId())
         {
             case R.id.action_favourite:
-                Toast.makeText(this, "You're my favourite", Toast.LENGTH_SHORT)
-                        .show();
+                /*Toast.makeText(this, "You're my favourite", Toast.LENGTH_SHORT)
+                        .show();*/
                 /*mBottomNavigationView.inflateMenu(R.menu.bottom_navigation_menu_food);*/
                 return true;
 
             case R.id.action_settings:
-                Toast.makeText(this, "Settings under construction", Toast.LENGTH_SHORT)
-                        .show();
+                /*Toast.makeText(this, "Settings under construction", Toast.LENGTH_SHORT)
+                        .show();*/
                 /*mBottomNavigationView.inflateMenu(R.menu.bottom_navigation_clothes);*/
                 return true;
             default:
@@ -178,7 +177,7 @@ public class OffersAndCouponsActivity extends AppCompatActivity implements ShopF
     public void onClick(View view) {
         if(view == mFloatingActionButton)
         {
-            Toast.makeText(this, "Clicked fab", Toast.LENGTH_SHORT).show();
+            /*Toast.makeText(this, "Clicked fab", Toast.LENGTH_SHORT).show();*/
         }
     }
 

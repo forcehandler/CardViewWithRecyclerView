@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -62,7 +63,7 @@ public class ShopFragment extends Fragment implements ShopAdapter.ShopClickListe
             if(BuildConfig.DEBUG)
                 Log.d(TAG, "received shop data changed broadcast");
             filteredShops.clear();
-            filteredShops.addAll(filterData(category));
+            filteredShops.addAll(filterCategory(category));
             //Log.d(TAG, "shopsdata " + Godlike.mShopsList);
             //Log.d(TAG, "filtereddata " + filteredShops);
             mShopAdapter.notifyDataSetChanged();
@@ -116,9 +117,14 @@ public class ShopFragment extends Fragment implements ShopAdapter.ShopClickListe
         // Get the reference to the firebase database
         //mRef = FirebaseDatabase.getInstance().getReference("testcoupons");
 
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constants.SharedPreferences.USER_PREF_FILE,
+                Context.MODE_PRIVATE);
+        String mallId = sharedPreferences.getString(Constants.SharedPreferences.MALL_ID, "MH_0253_CCM");
+        Godlike.getShops(getActivity(), mallId);
+
         // Filter the data according to the category and pass it to the adapter.
         filteredShops.clear();
-        filteredShops.addAll(filterData(category));
+        filteredShops.addAll(filterCategory(category));
         mShopAdapter = new ShopAdapter(getContext(), filteredShops);
         mShopAdapter.setShopClickListener(this);
         if(BuildConfig.DEBUG)
@@ -135,8 +141,15 @@ public class ShopFragment extends Fragment implements ShopAdapter.ShopClickListe
         //
         filteredShops.clear();
 
-        // passing all the shops which have the category passed to this fragment along with user query
-        filteredShops.addAll(searchData(Godlike.mShopsList, query));
+        // passing all the shops of given category to restore the coupons on exiting search
+        if(query.isEmpty())
+        {
+            filteredShops.addAll(searchData(filterCategory(category),query));
+        }
+        // passing all the shops with query if query is not null or empty
+        else {
+            filteredShops.addAll(searchData(Godlike.mShopsList, query));
+        }
 
         if (BuildConfig.DEBUG) Log.d(TAG, "size of filteredShops = " + filteredShops.size());
 
@@ -146,9 +159,9 @@ public class ShopFragment extends Fragment implements ShopAdapter.ShopClickListe
 
 
     // Returns list of shops with the specified category
-    private List<Shop> filterData(String query)
+    private List<Shop> filterCategory(String query)
     {
-        if(BuildConfig.DEBUG) Log.d(TAG, " in filterData with query = " + query);
+        if(BuildConfig.DEBUG) Log.d(TAG, " in filterCategory with query = " + query);
 
         String lowerCaseQuery = query.toLowerCase();
         List<Shop> filteredData = new ArrayList<>();
@@ -174,7 +187,7 @@ public class ShopFragment extends Fragment implements ShopAdapter.ShopClickListe
     // Returns list of shops which contains query as a substring of their categories
     private List<Shop> searchData(List<Shop> shops, String query)
     {
-        if(BuildConfig.DEBUG) Log.d(TAG, " in filterData with query = " + query);
+        if(BuildConfig.DEBUG) Log.d(TAG, " in filterCategory with query = " + query);
 
         String lowerCaseQuery = query.toLowerCase();
         List<Shop> filteredData = new ArrayList<>();

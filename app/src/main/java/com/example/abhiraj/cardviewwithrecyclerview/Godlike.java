@@ -1,5 +1,6 @@
 package com.example.abhiraj.cardviewwithrecyclerview;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.content.LocalBroadcastManager;
@@ -21,7 +22,7 @@ import java.util.List;
  * Created by Abhiraj on 11-02-2017.
  */
 
-public class Godlike {
+public class Godlike extends Application{
 
     private static final String TAG = Godlike.class.getSimpleName();
     private static DatabaseReference mRef;
@@ -30,6 +31,14 @@ public class Godlike {
     public static List<Shop> mShopsList;
 
     private static Context sContext;
+
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    /* Enable disk persistence  */
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+    }
 
     public static void getCoupons(Context context, String mallID /* add age and gender later*/)
     {
@@ -60,6 +69,7 @@ public class Godlike {
 
     public static void getShops(Context context, String mallID /* add age and gender later*/)
     {
+
         sContext = context;
         mShopsList = new ArrayList<>();
         mRef = FirebaseDatabase.getInstance().getReference("malls/"+mallID+"/shops");
@@ -95,4 +105,5 @@ public class Godlike {
         });
 
     }
+
 }

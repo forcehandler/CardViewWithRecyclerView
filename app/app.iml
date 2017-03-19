@@ -113,6 +113,8 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.2.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/10.2.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.2.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.2.0/jars" />
@@ -159,6 +161,8 @@
     <orderEntry type="library" exported="" name="design-25.2.0" level="project" />
     <orderEntry type="library" exported="" name="cardview-v7-25.2.0" level="project" />
     <orderEntry type="library" exported="" name="support-core-ui-25.2.0" level="project" />
+    <orderEntry type="library" exported="" name="play-services-maps-10.2.0" level="project" />
+    <orderEntry type="library" exported="" name="play-services-location-10.2.0" level="project" />
     <orderEntry type="library" exported="" name="bolts-android-1.4.0" level="project" />
     <orderEntry type="library" exported="" name="customtabs-25.0.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-crash-10.2.0" level="project" />

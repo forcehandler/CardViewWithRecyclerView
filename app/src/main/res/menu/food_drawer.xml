@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Change Mall"/>
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Coupons"/>
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Mall Events"/>
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Food and Dining"/>
+    </group>
+
+    <item android:title="Categories">
+        <menu>
+            <item
+                android:id="@+id/nav_drinks"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Drinks"/>
+            <item
+                android:id="@+id/nav_icecream"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Icecream"/>
+            <item
+                android:id="@+id/nav_chinese"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Chinese"/>
+            <item
+                android:id="@+id/nav_chaat"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Chaat"/>
+        </menu>
+    </item>
+
+</menu>

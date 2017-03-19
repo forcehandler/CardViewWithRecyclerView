@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.abhiraj.cardviewwithrecyclerview.R;
 import com.example.abhiraj.cardviewwithrecyclerview.models.OfferSkyOffers;
@@ -38,7 +37,7 @@ public class OfferHolder extends RecyclerView.ViewHolder {
         mSeeMoreBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(itemView.getContext(), "Coming Soon", Toast.LENGTH_LONG).show();
+                /*Toast.makeText(itemView.getContext(), "Coming Soon", Toast.LENGTH_LONG).show();*/
                 Intent intent = new Intent(itemView.getContext(), DetailsActivity.class);
                 itemView.getContext().startActivity(intent);
             }
