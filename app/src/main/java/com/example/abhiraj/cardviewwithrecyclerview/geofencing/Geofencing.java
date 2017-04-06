@@ -112,7 +112,7 @@ public class Geofencing extends AppCompatActivity implements
             if(bundle != null)
             {
                 String steps = bundle.getString(Constants.Broadcasts.STEPS);
-                if(BuildConfig.DEBUG) Log.d(TAG, "steps recieved " + steps);
+                if(BuildConfig.DEBUG) Log.d(TAG, "steps received " + steps);
                 stepsTv.setText(steps);
             }
         }
@@ -305,7 +305,7 @@ public class Geofencing extends AppCompatActivity implements
     }*/
 
     private LocationRequest locationRequest;
-    // Defined in mili seconds.
+    // Defined in milli seconds.
     // This number in extremely low, and should be used only for debug
     private final int UPDATE_INTERVAL =  1000;     // update every 5 minutes
     private final int FASTEST_INTERVAL = 800;     // if available then check after every 2 minutes
@@ -426,7 +426,7 @@ public class Geofencing extends AppCompatActivity implements
         if ( checkPermission() ) {
             lastLocation = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
             if ( lastLocation != null ) {
-                Log.i(TAG, "LasKnown location. " +
+                Log.i(TAG, "LastKnown location. " +
                         "Long: " + lastLocation.getLongitude() +
                         " | Lat: " + lastLocation.getLatitude());
                 writeLastLocation();

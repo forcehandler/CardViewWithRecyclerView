@@ -6,10 +6,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.abhiraj.cardviewwithrecyclerview.BuildConfig;
 import com.example.abhiraj.cardviewwithrecyclerview.R;
 
 /**
@@ -25,6 +28,8 @@ public class SearchFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String TITLE = "param1";
     private static final String SEARCH_TERM = "param2";
+
+    private static final String TAG = SearchFragment.class.getSimpleName();
 
     // TODO: Rename and change types of parameters
     private String title;
@@ -57,6 +62,9 @@ public class SearchFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(BuildConfig.DEBUG) Log.d(TAG, "on Create");
+
         if (getArguments() != null) {
             title = getArguments().getString(TITLE);
             search_term = getArguments().getString(search_term);
@@ -64,8 +72,16 @@ public class SearchFragment extends Fragment {
 
         ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         actionBar.setTitle(title);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_keyboard_backspace_white_24dp);
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
+    }
+
+    @Override
+    public void onResume()
+    {
+        if(BuildConfig.DEBUG) Log.d(TAG, "on Resume");
+        super.onResume();
     }
 
     @Override
@@ -73,6 +89,22 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_search, container, false);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        Log.d(TAG, "in onOptionsItemSelected");
+        switch(item.getItemId()){
+
+            case android.R.id.home:
+                if(BuildConfig.DEBUG) Log.d(TAG, "on home up case");
+                return true;
+            case R.id.action_favourite:
+                if(BuildConfig.DEBUG) Log.d(TAG, "action favourite");
+                return true;
+            default:
+                return true;
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event

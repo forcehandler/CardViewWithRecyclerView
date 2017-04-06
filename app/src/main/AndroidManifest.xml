@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
+
     <application
         android:name=".Godlike"
         android:allowBackup="true"
@@ -18,6 +19,8 @@
         <service android:name=".geofencing.GeofenceTrasitionService"/>
         <service android:name=".geofencing.StepListener"
             android:stopWithTask="true"/>
+        <service android:name=".geofencing.GeofenceService"
+                 android:stopWithTask="true"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -61,7 +64,8 @@
         <activity
             android:name=".ui.HomeDrawerActivity"
             android:label="@string/title_activity_home_drawer"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:launchMode="singleInstance">
         </activity>
         <activity android:name=".ui.DetailsActivity">
         </activity>
@@ -96,6 +100,13 @@
         </activity>
         <activity android:name=".ui.MallSelectActivity">
         </activity>
+
+        <receiver android:name=".receiver.GpsCheckReceiver">
+            <intent-filter>
+                <action android:name="android.location.PROVIDERS_CHANGED" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

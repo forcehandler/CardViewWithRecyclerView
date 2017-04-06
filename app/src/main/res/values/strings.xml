@@ -13,4 +13,8 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="internet_not_available">Connect to the internet</string>
+    <string name="GPS_required_message">We require GPS to ensure best shopping experience for you. Please turn it on.</string>
+    <string name="GPS_required_title">Attention</string>
 </resources>

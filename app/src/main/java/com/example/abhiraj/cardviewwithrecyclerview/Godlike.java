@@ -7,6 +7,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.example.abhiraj.cardviewwithrecyclerview.models.Coupon;
+import com.example.abhiraj.cardviewwithrecyclerview.models.Mall;
 import com.example.abhiraj.cardviewwithrecyclerview.models.Shop;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,6 +30,7 @@ public class Godlike extends Application{
 
     public static List<Coupon> mCouponList;
     public static List<Shop> mShopsList;
+    public static Mall sMall;
 
     private static Context sContext;
 
@@ -104,6 +106,30 @@ public class Godlike extends Application{
             }
         });
 
+    }
+
+    public static Mall getMall(Context context, String mallId){
+        sContext = context;
+        mShopsList = new ArrayList<>();
+        mRef = FirebaseDatabase.getInstance().getReference("malls/"+mallId);
+        Query query = mRef;
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getValue(Mall.class) instanceof Mall){
+                    Log.d(TAG, "datasnapshot is an instance of mall");
+                    sMall = dataSnapshot.getValue(Mall.class);
+                }
+                LocalBroadcastManager.getInstance(sContext).sendBroadcast(new Intent(Constants.Broadcasts.BROADCAST_SHOP_UPDATE));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, "Error while fetching coupons from firebase");
+            }
+        });
+        return sMall;
     }
 
 }

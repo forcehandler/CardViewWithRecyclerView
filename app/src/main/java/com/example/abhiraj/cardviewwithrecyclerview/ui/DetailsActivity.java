@@ -46,11 +46,22 @@ public class DetailsActivity extends AppCompatActivity implements ShopFragment.O
         }
 
         // Get the position of the shop which was clicked
+
         Intent intent = getIntent();
         mShopKey = intent.getStringExtra(Constants.IntentKeys.CLICKED_SHOP_KEY);
 
         if(BuildConfig.DEBUG) Log.d(TAG, "shop position recieved = " + mShopKey);
+
+
         // add the coupon fragment
+        showShopCoupons();
+
+
+
+    }
+
+    private void showShopCoupons() {
+
         coupon_frag_container = (FrameLayout) findViewById(R.id.coupon_frag_container);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -59,8 +70,6 @@ public class DetailsActivity extends AppCompatActivity implements ShopFragment.O
 
         fragmentTransaction.add(coupon_frag_container.getId(), offerFragment);
         fragmentTransaction.commit();
-
-
     }
 
 

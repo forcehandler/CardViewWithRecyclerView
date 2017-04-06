@@ -8,11 +8,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.util.Log;
 
 import com.example.abhiraj.cardviewwithrecyclerview.BuildConfig;
+import com.example.abhiraj.cardviewwithrecyclerview.Constants;
 import com.example.abhiraj.cardviewwithrecyclerview.R;
+import com.example.abhiraj.cardviewwithrecyclerview.ui.HomeDrawerActivity;
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofenceStatusCodes;
 import com.google.android.gms.location.GeofencingEvent;
@@ -76,22 +79,29 @@ public class GeofenceTrasitionService extends IntentService {
         String status = null;
         if ( geoFenceTransition == Geofence.GEOFENCE_TRANSITION_ENTER ) {
             status = "Entering ";
-
+            sendGeofenceBroadcast(Constants.Geofence.GEOFENCE_ENTER_BROADCAST);
             if(BuildConfig.DEBUG)
                 Log.d(TAG, "Transition enter");
             // Start measuring steps, Initiate the pedometer service
             // TODO: Add dwell time before starting and stopping pedometer service
-            startPedometer();
+            //startPedometer();
         }
         else if ( geoFenceTransition == Geofence.GEOFENCE_TRANSITION_EXIT ) {
             status = "Exiting ";
-
+            sendGeofenceBroadcast(Constants.Geofence.GEOFENCE_EXIT_BROADCAST);
             if(BuildConfig.DEBUG)
                 Log.d(TAG, "Transition exit");
             // Stop pedometer service
-            stopPedometer();
+            //stopPedometer();
         }
         return status + TextUtils.join( ", ", triggeringGeofencesList);
+    }
+
+    private void sendGeofenceBroadcast(String status) {
+        if(BuildConfig.DEBUG) Log.d(TAG, "sending geofence enter broadcast");
+        Intent intent = new Intent();
+        intent.setAction(status);
+        LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(intent);
     }
 
     private void startPedometer() {
@@ -117,6 +127,9 @@ public class GeofenceTrasitionService extends IntentService {
                 getApplicationContext(), msg
         );
 
+        Intent notificationIntent1 = new Intent(getApplicationContext(), HomeDrawerActivity.class);
+
+
         // TODO: Notification leads to the geofencing class,
         // Redirect it to the corresponding coupon and build back stack
         // Needs min API 16.
@@ -126,7 +139,7 @@ public class GeofenceTrasitionService extends IntentService {
         stackBuilder.addNextIntent(notificationIntent);*/
 
         PendingIntent notificationPendingIntent = PendingIntent.getActivity(getApplicationContext(), 0,
-                notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                notificationIntent1, PendingIntent.FLAG_UPDATE_CURRENT);
         // Creating and sending Notification
         NotificationManager notificationMng =
                 (NotificationManager) getSystemService( Context.NOTIFICATION_SERVICE );

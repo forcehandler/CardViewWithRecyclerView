@@ -28,8 +28,22 @@ public class Constants {
         static final String RADIUS = "radius";
 
         static final String GEOFENCE_REQUEST_ID = "my geofence";
+
+        static final String GEOFENCE_ENTER_BROADCAST = "geofence_enter";
+        static final String GEOFENCE_EXIT_BROADCAST = "geofence_exit";
+
+        static final String GEOFENCE_CREATED = "GeofenceCreated";
+
+        static final String GOOGLE_API_CONNECTED = "APIConnected";
     }
 
+    public interface Location
+    {
+        static final String GPS_ENABLED = "GPSEnabled";
+        static final String GPS_STATE_ON_BROADCAST = "GPS turned on";
+        static final String GPS_STATE_OFF_BROADCAST = "GPS turned off";
+
+    }
 
     public interface SharedPreferences
     {

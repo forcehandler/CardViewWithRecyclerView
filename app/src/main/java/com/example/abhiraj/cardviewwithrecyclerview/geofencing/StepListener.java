@@ -14,6 +14,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.net.Uri;
+import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
 import android.os.PowerManager;
@@ -41,13 +42,21 @@ public class StepListener extends Service implements SensorEventListener {
 
     private static PowerManager powerManager;
     private static PowerManager.WakeLock wakeLock;
+
+
+    private final IBinder mBinder = new StepBinder();
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        return mBinder;
     }
 
-
+    public class StepBinder extends Binder {
+        public StepListener getService() {
+            // Return this instance of LocalService so clients can call public methods
+            return StepListener.this;
+        }
+    }
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         // Check for false values
@@ -66,7 +75,7 @@ public class StepListener extends Service implements SensorEventListener {
                 Log.d(TAG, "no of steps received " + steps);
 
             steps++;
-            publishSteps();
+            //publishSteps();
             //updateSteps(steps);
 
         }
@@ -88,11 +97,13 @@ public class StepListener extends Service implements SensorEventListener {
     @Override
     public void onCreate()
     {
+        Log.d(TAG, "onCreate of StepListener");
         Log.d(TAG, "onCreate");
         super.onCreate();
         if(BuildConfig.DEBUG)
             Log.d(TAG, "StepListener Oncreate");
-        reRegisterSensor();
+
+        //reRegisterSensor();
 
         // prevent service from stopping when the phone goes to deep sleep in api >= 23
         ignoreDozeOptimization();
@@ -113,14 +124,33 @@ public class StepListener extends Service implements SensorEventListener {
 
         notificationBuilder = new NotificationCompat.Builder(this);
 
+        // Register broadcast receiver for gps state change.
+        /*gpsCheckReceiver = new GpsCheckReceiver();
+        Log.d(TAG, "registering gps check broadcast receiver");
+        registerReceiver(gpsCheckReceiver, new IntentFilter(LocationManager.PROVIDERS_CHANGED_ACTION));*/
+
     }
 
     @Override
     public void onDestroy()
     {
-        super.onDestroy();
+
         if(BuildConfig.DEBUG)
             Log.d(TAG, "StepListener onDestroy");
+        unRegisterSensor();
+        releaseWakeLock();
+        /*if(gpsCheckReceiver != null){
+            Log.d(TAG, "unregistering gps check broadcast receiver");
+            unregisterReceiver(gpsCheckReceiver);
+        }*/
+        super.onDestroy();
+
+    }
+
+    public void unRegisterSensor()
+    {
+        if(BuildConfig.DEBUG)
+            Log.d(TAG, "un-register sensor listener");
         SensorManager sm = (SensorManager) getSystemService(SENSOR_SERVICE);
         try{
             sm.unregisterListener(this);
@@ -128,22 +158,16 @@ public class StepListener extends Service implements SensorEventListener {
             if(BuildConfig.DEBUG) Log.d(TAG, "error in un registering sensor listener");
             e.printStackTrace();
         }
-
     }
 
-    private void reRegisterSensor()
+    public void reRegisterSensor()
     {
         if(BuildConfig.DEBUG)
             Log.d(TAG, "re-register sensor listener");
 
         SensorManager sm = (SensorManager) getSystemService(SENSOR_SERVICE);
 
-        try{
-            sm.unregisterListener(this);
-        } catch (Exception e){
-            if(BuildConfig.DEBUG) Log.d(TAG, e.toString());
-            e.printStackTrace();
-        }
+        unRegisterSensor();
 
         if (BuildConfig.DEBUG) {
             Log.d(TAG, "step sensors: " + sm.getSensorList(Sensor.TYPE_STEP_COUNTER).size());
@@ -187,22 +211,25 @@ public class StepListener extends Service implements SensorEventListener {
         Intent intent = new Intent(Constants.Broadcasts.BROADCAST_STEPS);
         intent.putExtra(Constants.Broadcasts.STEPS, steps+"");
         LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(intent);
-        sendNotification(steps+"");
+        //sendNotification(steps+"");
     }
 
     public static void releaseWakeLock()
     {
         if(wakeLock != null) {
-            wakeLock.release();
+            if(wakeLock.isHeld()) {     //required to avoid crash, sometimes wakelock is not held and
+                                        // the internal reference counter goes negative causing the crash
+                wakeLock.release();
+            }
         }
     }
 
 
-    private void sendNotification( String msg ) {
+    public void sendNotification(String title, String msg ) {
         Log.i(TAG, "sendNotification: " + msg );
 
         // Intent to start the main Activity
-        Intent notificationIntent = new Intent(this, HomeDrawerActivity.class);
+        Intent notificationIntent = new Intent(getApplicationContext(), HomeDrawerActivity.class);
 
 
         PendingIntent notificationPendingIntent = PendingIntent.getActivity(getApplicationContext(), 0,
@@ -211,7 +238,7 @@ public class StepListener extends Service implements SensorEventListener {
         NotificationManager notificationMng =
                 (NotificationManager) getSystemService( Context.NOTIFICATION_SERVICE );
 
-        Notification notification = createNotification(msg, notificationPendingIntent);
+        Notification notification = createNotification(title, msg, notificationPendingIntent);
         notificationMng.notify(
                 1337,
                 notification);
@@ -220,12 +247,12 @@ public class StepListener extends Service implements SensorEventListener {
 
     }
 
-    private Notification createNotification(String msg, PendingIntent notificationPendingIntent) {
+    private Notification createNotification(String title, String msg, PendingIntent notificationPendingIntent) {
 
         notificationBuilder
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setColor(Color.RED)
-                .setContentTitle("Earning")
+                .setContentTitle(title)
                 .setContentText(msg)
                 .setContentIntent(notificationPendingIntent)
                 .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_VIBRATE | Notification.DEFAULT_SOUND)
