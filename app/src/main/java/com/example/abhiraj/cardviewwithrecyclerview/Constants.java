@@ -35,6 +35,10 @@ public class Constants {
         static final String GEOFENCE_CREATED = "GeofenceCreated";
 
         static final String GOOGLE_API_CONNECTED = "APIConnected";
+
+        static final String SHOW_EARNING_ICON = "show earning icon";
+
+        static final String SHOW_DEFAULT_ICON = "show default icon";
     }
 
     public interface Location

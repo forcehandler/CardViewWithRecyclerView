@@ -14,10 +14,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8263b0da-9e34-4b8f-84fe-c4ab8a7a19dc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/GeofenceService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/models/Mall.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/receiver/GpsCheckReceiver.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/receiver/MyBroadcast.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
@@ -27,24 +23,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/mockable-android-25.jar" afterPath="$PROJECT_DIR$/build/generated/mockable-android-25.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/BaseActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/BaseActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/Constants.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/Godlike.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/Godlike.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/fragments/SearchFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/fragments/SearchFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/GeofenceTrasitionService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/GeofenceTrasitionService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/Geofencing.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/Geofencing.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/StepListener.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/StepListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/ui/DetailsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/ui/DetailsActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/GeofenceService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/GeofenceService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/ui/HomeDrawerActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/ui/HomeDrawerActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/facebook_android_sdk_4_20_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/facebook_android_sdk_4_21_0.xml" />
     </list>
     <ignored path="CardViewWithRecyclerView.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,53 +65,49 @@
       <file leaf-file-name="HomeDrawerActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/ui/HomeDrawerActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4239">
-              <caret line="385" column="23" selection-start-line="385" selection-start-column="19" selection-end-line="385" selection-end-column="23" />
+            <state relative-caret-position="107">
+              <caret line="1104" column="20" selection-start-line="1104" selection-start-column="20" selection-end-line="1104" selection-end-column="20" />
               <folding>
-                <element signature="e#4123#5805#0" expanded="true" />
-                <element signature="e#5804#5805#0" expanded="true" />
-                <element signature="e#6117#7024#0" expanded="true" />
-                <element signature="e#7023#7024#0" expanded="true" />
-                <element signature="e#7083#7961#0" expanded="true" />
-                <element signature="e#7960#7961#0" expanded="true" />
-                <element signature="e#8021#10106#0" expanded="true" />
-                <element signature="e#10105#10106#0" expanded="true" />
-                <element signature="e#10869#10870#0" expanded="true" />
-                <element signature="e#10907#10908#0" expanded="true" />
-                <element signature="e#12083#12575#0" expanded="true" />
-                <element signature="e#12574#12575#0" expanded="true" />
-                <element signature="e#15783#15814#0" expanded="true" />
-                <element signature="e#15816#15848#0" expanded="true" />
-                <element signature="e#18991#18992#0" expanded="false" />
-                <element signature="e#19066#19067#0" expanded="false" />
-                <element signature="e#26951#27008#0" expanded="true" />
-                <element signature="e#35983#35984#0" expanded="false" />
-                <element signature="e#36044#36045#0" expanded="false" />
-                <marker date="1491510364376" expanded="false" signature="5492:5570" ph="() → {" />
-                <marker date="1491510364376" expanded="false" signature="5759:5778" ph="}" />
-                <marker date="1491510364376" expanded="false" signature="36930:36945" ph=" { " />
-                <marker date="1491510364376" expanded="false" signature="36955:36965" ph=" }" />
-                <marker date="1491510364376" expanded="false" signature="37408:37423" ph=" { " />
-                <marker date="1491510364376" expanded="false" signature="37458:37468" ph=" }" />
-                <marker date="1491510364376" expanded="false" signature="37517:37532" ph=" { " />
-                <marker date="1491510364376" expanded="false" signature="37560:37570" ph=" }" />
-                <marker date="1491510364376" expanded="false" signature="37644:37667" ph=" { " />
-                <marker date="1491510364376" expanded="false" signature="37707:37717" ph=" }" />
+                <element signature="e#5418#6867#0" expanded="true" />
+                <element signature="e#6866#6867#0" expanded="true" />
+                <element signature="e#7179#8086#0" expanded="true" />
+                <element signature="e#8085#8086#0" expanded="true" />
+                <element signature="e#8145#9023#0" expanded="true" />
+                <element signature="e#9022#9023#0" expanded="true" />
+                <element signature="e#12203#12204#0" expanded="true" />
+                <element signature="e#12241#12242#0" expanded="true" />
+                <element signature="e#13417#13909#0" expanded="true" />
+                <element signature="e#13908#13909#0" expanded="true" />
+                <element signature="e#15349#15910#0" expanded="true" />
+                <element signature="e#15909#15910#0" expanded="true" />
+                <element signature="e#17911#17942#0" expanded="true" />
+                <element signature="e#17944#17976#0" expanded="true" />
+                <element signature="e#29942#29999#0" expanded="true" />
+                <element signature="e#42480#42509#0" expanded="true" />
+                <element signature="e#42549#42576#0" expanded="true" />
+                <element signature="e#43249#43585#0" expanded="true" />
+                <element signature="e#43584#43585#0" expanded="true" />
+                <marker date="1491581156427" expanded="false" signature="6554:6632" ph="() → {" />
+                <marker date="1491581156427" expanded="false" signature="6821:6840" ph="}" />
+                <marker date="1491581156427" expanded="false" signature="48172:48187" ph=" { " />
+                <marker date="1491581156427" expanded="false" signature="48197:48207" ph=" }" />
+                <marker date="1491581156427" expanded="false" signature="48650:48665" ph=" { " />
+                <marker date="1491581156427" expanded="false" signature="48700:48710" ph=" }" />
+                <marker date="1491581156427" expanded="false" signature="48759:48774" ph=" { " />
+                <marker date="1491581156427" expanded="false" signature="48802:48812" ph=" }" />
+                <marker date="1491581156427" expanded="false" signature="48886:48909" ph=" { " />
+                <marker date="1491581156427" expanded="false" signature="48949:48959" ph=" }" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BaseActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/BaseActivity.java">
+      <file leaf-file-name="GeofenceService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/GeofenceService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="239" column="74" selection-start-line="239" selection-start-column="74" selection-end-line="239" selection-end-column="74" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#18489#18816#0" expanded="true" />
-                <element signature="e#18815#18816#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="437">
+              <caret line="102" column="26" selection-start-line="102" selection-start-column="26" selection-end-line="102" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -134,8 +115,8 @@
       <file leaf-file-name="Godlike.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/Godlike.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="121" column="47" selection-start-line="121" selection-start-column="47" selection-end-line="121" selection-end-column="47" />
+            <state relative-caret-position="267">
+              <caret line="114" column="27" selection-start-line="114" selection-start-column="27" selection-end-line="114" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -144,31 +125,9 @@
       <file leaf-file-name="GeofenceTrasitionService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/GeofenceTrasitionService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
+            <state relative-caret-position="-707">
               <caret line="44" column="9" selection-start-line="41" selection-start-column="8" selection-end-line="44" selection-end-column="9" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GeofenceService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/GeofenceService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="177" column="60" selection-start-line="177" selection-start-column="56" selection-end-line="177" selection-end-column="60" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1668#1669#0" expanded="true" />
-                <element signature="e#1698#1699#0" expanded="true" />
-                <element signature="e#15342#15669#0" expanded="true" />
-                <element signature="e#15668#15669#0" expanded="true" />
-                <marker date="1491509728329" expanded="false" signature="5590:5736" ph="onResult(result) → {" />
-                <marker date="1491509728329" expanded="false" signature="6945:6960" ph="}" />
-                <marker date="1491509728329" expanded="false" signature="8190:8349" ph="onClick(dialogInterface, i) → {" />
-                <marker date="1491509728329" expanded="false" signature="8723:8750" ph="}" />
-                <marker date="1491509728329" expanded="false" signature="8806:8965" ph="onClick(dialogInterface, i) → {" />
-                <marker date="1491509728329" expanded="false" signature="9115:9142" ph="}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -176,8 +135,8 @@
       <file leaf-file-name="StepListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/StepListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1732">
-              <caret line="220" column="105" selection-start-line="220" selection-start-column="105" selection-end-line="220" selection-end-column="105" />
+            <state relative-caret-position="261">
+              <caret line="210" column="41" selection-start-line="210" selection-start-column="36" selection-end-line="210" selection-end-column="41" />
               <folding>
                 <element signature="e#1653#1654#0" expanded="true" />
                 <element signature="e#1683#1684#0" expanded="true" />
@@ -186,11 +145,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/Constants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="40" column="68" selection-start-line="40" selection-start-column="68" selection-end-line="40" selection-end-column="68" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Geofencing.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/Geofencing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="161" column="16" selection-start-line="161" selection-start-column="11" selection-end-line="161" selection-end-column="16" />
+            <state relative-caret-position="188">
+              <caret line="198" column="37" selection-start-line="198" selection-start-column="8" selection-end-line="198" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -202,7 +171,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
+            <state relative-caret-position="163">
               <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
               <folding />
             </state>
@@ -2314,14 +2283,14 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/receiver/MyBroadcast.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/receiver/GpsCheckReceiver.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/LocationAPI.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/Constants.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/GeofenceTrasitionService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/models/Mall.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/Godlike.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/StepListener.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/GeofenceService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/Godlike.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/Constants.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/BaseActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/GeofenceService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/ui/HomeDrawerActivity.java" />
       </list>
     </option>
@@ -2382,7 +2351,78 @@
       </pane>
       <pane id="Scope" />
       <pane id="AndroidView">
-        <subPane />
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CardViewWithRecyclerView" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CardViewWithRecyclerView" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CardViewWithRecyclerView" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CardViewWithRecyclerView" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cardviewwithrecyclerview" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CardViewWithRecyclerView" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cardviewwithrecyclerview" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="geofencing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
       <pane id="Scratches" />
     </panes>
@@ -2746,36 +2786,36 @@
     <layout>
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7076023" sideWeight="0.19548872" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.84543324" sideWeight="0.80451125" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.80093676" sideWeight="0.19871107" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6241218" sideWeight="0.80128896" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50760233" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50760233" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2994152" sideWeight="0.48642534" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3793911" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32748538" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3793911" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.326555" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.49570355" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4366516" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14554243" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3266979" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="combo" />
       <window_info id="Assistant" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32867885" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2508056" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -3127,14 +3167,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="34" column="65" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/models/Mall.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
@@ -3143,30 +3175,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/Geofencing.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/Godlike.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="161" column="16" selection-start-line="161" selection-start-column="11" selection-end-line="161" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/GeofenceTrasitionService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="44" column="9" selection-start-line="41" selection-start-column="8" selection-end-line="44" selection-end-column="9" />
+        <state relative-caret-position="267">
+          <caret line="114" column="27" selection-start-line="114" selection-start-column="27" selection-end-line="114" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/StepListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1732">
-          <caret line="220" column="105" selection-start-line="220" selection-start-column="105" selection-end-line="220" selection-end-column="105" />
+        <state relative-caret-position="261">
+          <caret line="210" column="41" selection-start-line="210" selection-start-column="36" selection-end-line="210" selection-end-column="41" />
           <folding>
             <element signature="e#1653#1654#0" expanded="true" />
             <element signature="e#1683#1684#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/Geofencing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="198" column="37" selection-start-line="198" selection-start-column="8" selection-end-line="198" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3175,86 +3207,88 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
+        <state relative-caret-position="163">
           <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/Godlike.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/GeofenceTrasitionService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="121" column="47" selection-start-line="121" selection-start-column="47" selection-end-line="121" selection-end-column="47" />
+        <state relative-caret-position="-707">
+          <caret line="44" column="9" selection-start-line="41" selection-start-column="8" selection-end-line="44" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="40" column="68" selection-start-line="40" selection-start-column="68" selection-end-line="40" selection-end-column="68" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/BaseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="239" column="74" selection-start-line="239" selection-start-column="74" selection-end-line="239" selection-end-column="74" />
+        <state relative-caret-position="170">
+          <caret line="309" column="0" selection-start-line="309" selection-start-column="0" selection-end-line="309" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#18489#18816#0" expanded="true" />
-            <element signature="e#18815#18816#0" expanded="true" />
+            <element signature="e#2040#2041#0" expanded="true" />
+            <element signature="e#2071#2072#0" expanded="true" />
+            <element signature="e#17622#17949#0" expanded="true" />
+            <element signature="e#17948#17949#0" expanded="true" />
+            <marker date="1491580414417" expanded="false" signature="4759:4770" ph=" { " />
+            <marker date="1491580414417" expanded="false" signature="4809:4815" ph=" }" />
+            <marker date="1491580414417" expanded="false" signature="10292:10321" ph="&quot;We require GPS to ensure best shopping experience for y...&quot;" />
+            <marker date="1491580414417" expanded="false" signature="10361:10388" ph="&quot;Attention&quot;" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/geofencing/GeofenceService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="177" column="60" selection-start-line="177" selection-start-column="56" selection-end-line="177" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1668#1669#0" expanded="true" />
-            <element signature="e#1698#1699#0" expanded="true" />
-            <element signature="e#15342#15669#0" expanded="true" />
-            <element signature="e#15668#15669#0" expanded="true" />
-            <marker date="1491509728329" expanded="false" signature="5590:5736" ph="onResult(result) → {" />
-            <marker date="1491509728329" expanded="false" signature="6945:6960" ph="}" />
-            <marker date="1491509728329" expanded="false" signature="8190:8349" ph="onClick(dialogInterface, i) → {" />
-            <marker date="1491509728329" expanded="false" signature="8723:8750" ph="}" />
-            <marker date="1491509728329" expanded="false" signature="8806:8965" ph="onClick(dialogInterface, i) → {" />
-            <marker date="1491509728329" expanded="false" signature="9115:9142" ph="}" />
-          </folding>
+        <state relative-caret-position="437">
+          <caret line="102" column="26" selection-start-line="102" selection-start-column="26" selection-end-line="102" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/abhiraj/cardviewwithrecyclerview/ui/HomeDrawerActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4239">
-          <caret line="385" column="23" selection-start-line="385" selection-start-column="19" selection-end-line="385" selection-end-column="23" />
+        <state relative-caret-position="107">
+          <caret line="1104" column="20" selection-start-line="1104" selection-start-column="20" selection-end-line="1104" selection-end-column="20" />
           <folding>
-            <element signature="e#4123#5805#0" expanded="true" />
-            <element signature="e#5804#5805#0" expanded="true" />
-            <element signature="e#6117#7024#0" expanded="true" />
-            <element signature="e#7023#7024#0" expanded="true" />
-            <element signature="e#7083#7961#0" expanded="true" />
-            <element signature="e#7960#7961#0" expanded="true" />
-            <element signature="e#8021#10106#0" expanded="true" />
-            <element signature="e#10105#10106#0" expanded="true" />
-            <element signature="e#10869#10870#0" expanded="true" />
-            <element signature="e#10907#10908#0" expanded="true" />
-            <element signature="e#12083#12575#0" expanded="true" />
-            <element signature="e#12574#12575#0" expanded="true" />
-            <element signature="e#15783#15814#0" expanded="true" />
-            <element signature="e#15816#15848#0" expanded="true" />
-            <element signature="e#18991#18992#0" expanded="false" />
-            <element signature="e#19066#19067#0" expanded="false" />
-            <element signature="e#26951#27008#0" expanded="true" />
-            <element signature="e#35983#35984#0" expanded="false" />
-            <element signature="e#36044#36045#0" expanded="false" />
-            <marker date="1491510364376" expanded="false" signature="5492:5570" ph="() → {" />
-            <marker date="1491510364376" expanded="false" signature="5759:5778" ph="}" />
-            <marker date="1491510364376" expanded="false" signature="36930:36945" ph=" { " />
-            <marker date="1491510364376" expanded="false" signature="36955:36965" ph=" }" />
-            <marker date="1491510364376" expanded="false" signature="37408:37423" ph=" { " />
-            <marker date="1491510364376" expanded="false" signature="37458:37468" ph=" }" />
-            <marker date="1491510364376" expanded="false" signature="37517:37532" ph=" { " />
-            <marker date="1491510364376" expanded="false" signature="37560:37570" ph=" }" />
-            <marker date="1491510364376" expanded="false" signature="37644:37667" ph=" { " />
-            <marker date="1491510364376" expanded="false" signature="37707:37717" ph=" }" />
+            <element signature="e#5418#6867#0" expanded="true" />
+            <element signature="e#6866#6867#0" expanded="true" />
+            <element signature="e#7179#8086#0" expanded="true" />
+            <element signature="e#8085#8086#0" expanded="true" />
+            <element signature="e#8145#9023#0" expanded="true" />
+            <element signature="e#9022#9023#0" expanded="true" />
+            <element signature="e#12203#12204#0" expanded="true" />
+            <element signature="e#12241#12242#0" expanded="true" />
+            <element signature="e#13417#13909#0" expanded="true" />
+            <element signature="e#13908#13909#0" expanded="true" />
+            <element signature="e#15349#15910#0" expanded="true" />
+            <element signature="e#15909#15910#0" expanded="true" />
+            <element signature="e#17911#17942#0" expanded="true" />
+            <element signature="e#17944#17976#0" expanded="true" />
+            <element signature="e#29942#29999#0" expanded="true" />
+            <element signature="e#42480#42509#0" expanded="true" />
+            <element signature="e#42549#42576#0" expanded="true" />
+            <element signature="e#43249#43585#0" expanded="true" />
+            <element signature="e#43584#43585#0" expanded="true" />
+            <marker date="1491581156427" expanded="false" signature="6554:6632" ph="() → {" />
+            <marker date="1491581156427" expanded="false" signature="6821:6840" ph="}" />
+            <marker date="1491581156427" expanded="false" signature="48172:48187" ph=" { " />
+            <marker date="1491581156427" expanded="false" signature="48197:48207" ph=" }" />
+            <marker date="1491581156427" expanded="false" signature="48650:48665" ph=" { " />
+            <marker date="1491581156427" expanded="false" signature="48700:48710" ph=" }" />
+            <marker date="1491581156427" expanded="false" signature="48759:48774" ph=" { " />
+            <marker date="1491581156427" expanded="false" signature="48802:48812" ph=" }" />
+            <marker date="1491581156427" expanded="false" signature="48886:48909" ph=" { " />
+            <marker date="1491581156427" expanded="false" signature="48949:48959" ph=" }" />
           </folding>
         </state>
       </provider>

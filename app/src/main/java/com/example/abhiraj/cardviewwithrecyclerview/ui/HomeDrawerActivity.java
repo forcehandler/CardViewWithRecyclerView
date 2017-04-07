@@ -1,27 +1,37 @@
 package com.example.abhiraj.cardviewwithrecyclerview.ui;
 
+import android.app.Activity;
 import android.app.SearchManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.IntentSender;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -44,10 +54,20 @@ import com.example.abhiraj.cardviewwithrecyclerview.geofencing.MallGeoFence;
 import com.example.abhiraj.cardviewwithrecyclerview.geofencing.StepListener;
 import com.example.abhiraj.cardviewwithrecyclerview.models.Mall;
 import com.example.abhiraj.cardviewwithrecyclerview.write.AddToFirebase;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResult;
+import com.google.android.gms.location.LocationSettingsStates;
+import com.google.android.gms.location.LocationSettingsStatusCodes;
 
-public class HomeDrawerActivity extends BaseActivity
-        implements SearchFragment.OnFragmentInteractionListener, ShopFragment.OffersFragmentListener, NavigationView.OnNavigationItemSelectedListener, BottomNavOfferFragment.OnFragmentInteractionListener, OfferSkyOfferFragment.OnFragmentInteractionListener, SearchView.OnQueryTextListener, View.OnClickListener {
+public class HomeDrawerActivity extends BaseActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
+         SearchFragment.OnFragmentInteractionListener, ShopFragment.OffersFragmentListener, NavigationView.OnNavigationItemSelectedListener, BottomNavOfferFragment.OnFragmentInteractionListener, OfferSkyOfferFragment.OnFragmentInteractionListener, SearchView.OnQueryTextListener, View.OnClickListener {
 
     private static final String TAG = HomeDrawerActivity.class.getSimpleName();
     private Toolbar mToolbar;
@@ -86,12 +106,16 @@ public class HomeDrawerActivity extends BaseActivity
 
     private boolean isUserWillingToEarn = false;
 
+    private boolean isGpsTurnedOnForTheFirstTime = true;
 
-    private LocationRequest locationRequest;
     // Defined in milli seconds.
     // This number in extremely low, and should be used only for debug
     private final int UPDATE_INTERVAL =  1000;     // update every 1 second
     private final int FASTEST_INTERVAL = 500;     // if available then check after every 0.5 second
+    private LocationRequest locationRequest = LocationRequest.create()
+            .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+    .setInterval(UPDATE_INTERVAL)
+    .setFastestInterval(FASTEST_INTERVAL);
 
     private BroadcastReceiver mAPIConnectedBroadcast = new BroadcastReceiver() {
         @Override
@@ -103,10 +127,6 @@ public class HomeDrawerActivity extends BaseActivity
             geofenceGoogleApiClient = GeofenceService.googleApiClient;
             // check the gps status
 
-            locationRequest = LocationRequest.create()
-                    .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
-                    .setInterval(UPDATE_INTERVAL)
-                    .setFastestInterval(FASTEST_INTERVAL);
             if(checkPermission()){
                 checkGpsSettings(locationRequest);
             }
@@ -118,7 +138,7 @@ public class HomeDrawerActivity extends BaseActivity
                 // start service(do not start counting steps now)
                 startPedometerService();
                 // bind to the service
-                bindStepService();
+               /* bindStepService();*/
             }
             /*Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -187,13 +207,13 @@ public class HomeDrawerActivity extends BaseActivity
         }
     };
 
-    private BroadcastReceiver mGPSStateChangeBroadcast = new BroadcastReceiver() {
+    /*private BroadcastReceiver mGPSStateChangeBroadcast = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
 
             Log.d(TAG, "received gps state change broadcast");
             if(intent.getAction().equals(Constants.Location.GPS_STATE_ON_BROADCAST)){
-                if(isUserWillingToEarn){
+                *//*if(isUserWillingToEarn){
 
                     Log.d(TAG, "the earning was paused, now gps is on so begin earning");
                     // if the earning was paused due to gps receiver outage,
@@ -203,17 +223,23 @@ public class HomeDrawerActivity extends BaseActivity
 
                     //check if the person is still in the geofence
                     // if(isUserInGeofence())
-                    /*if(mBound){
+                    *//**//*if(mBound){
                         Log.d(TAG, "issuing earning notification");
                         stepListener.sendNotification("Earning", "keep exploring to earn coupons");
                         isEarningPaused = false;
-                    }*/
+                    }*//**//*
 
+                }*//*
+
+                if(isUserWillingToEarn && isGpsTurnedOnForTheFirstTime){
+                    // start the main service
+                    startGeofenceService();
+                    isGpsTurnedOnForTheFirstTime = false;
                 }
 
             }
 
-            else if(intent.getAction().equals(Constants.Location.GPS_STATE_OFF_BROADCAST)){
+            *//*else if(intent.getAction().equals(Constants.Location.GPS_STATE_OFF_BROADCAST)){
                 isInsideGeofence = false;
                 Log.d(TAG, "Gps turned off broadcast received");
                 if(isEarningSessionInProgress){
@@ -230,9 +256,9 @@ public class HomeDrawerActivity extends BaseActivity
                     }
 
                 }
-            }
+            }*//*
         }
-    };
+    };*/
 
     /** Defines callbacks for service binding, passed to bindService() */
     private ServiceConnection mStepConnection = new ServiceConnection() {
@@ -305,7 +331,7 @@ public class HomeDrawerActivity extends BaseActivity
     {
         // if user is in the mall create geofence with loitering
         if(isInsideGeofence){
-            clearGeofence();
+            mGeofenceService.clearGeofence();
             Log.d(TAG, "inside geofence, creating loitering geofence");
             mGeofenceService.startGeofence(getGeofenceDetails(), true);
         }
@@ -332,8 +358,26 @@ public class HomeDrawerActivity extends BaseActivity
 
     private void startGeofenceService(){
         Log.d(TAG, "starting geofence service");
-        startService(new Intent(getApplicationContext(), GeofenceService.class));
+        Intent intent = new Intent(this, GeofenceService.class);
+        intent.putExtra("latitude", 15.392144);
+        intent.putExtra("longitude", 73.878643);
+        intent.putExtra("radius", 800.0f);
+        startService(intent);
     }
+
+    private BroadcastReceiver fabIconReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            Log.d(TAG, "received fab icon update broadcast");
+            if(intent.getAction().equals(Constants.Geofence.SHOW_EARNING_ICON)){
+                mFloatingActionButton.setImageResource(R.drawable.ic_favorite_white_24dp);
+            }
+            else if(intent.getAction().equals(Constants.Geofence.SHOW_DEFAULT_ICON)){
+                mFloatingActionButton.setImageResource(R.drawable.ic_search_white_48dp);
+            }
+        }
+    };
 
 
     @Override
@@ -347,18 +391,18 @@ public class HomeDrawerActivity extends BaseActivity
 
 
         // register googleAPIConnect broadcast receiver;
-        LocalBroadcastManager.getInstance(getApplicationContext())
+        /*LocalBroadcastManager.getInstance(getApplicationContext())
                 .registerReceiver(mAPIConnectedBroadcast, new IntentFilter("APIConnected"));
         LocalBroadcastManager.getInstance(getApplicationContext())
                 .registerReceiver(mGeofenceEnterBroadcast, new IntentFilter(Constants.Geofence.GEOFENCE_ENTER_BROADCAST));
         LocalBroadcastManager.getInstance(getApplicationContext())
-                .registerReceiver(mGeofenceEnterBroadcast, new IntentFilter(Constants.Geofence.GEOFENCE_EXIT_BROADCAST));
-        LocalBroadcastManager.getInstance(getApplicationContext())
+                .registerReceiver(mGeofenceEnterBroadcast, new IntentFilter(Constants.Geofence.GEOFENCE_EXIT_BROADCAST));*/
+        /*LocalBroadcastManager.getInstance(getApplicationContext())
                 .registerReceiver(mGPSStateChangeBroadcast, new IntentFilter(Constants.Location.GPS_STATE_ON_BROADCAST));
         LocalBroadcastManager.getInstance(getApplicationContext())
-                .registerReceiver(mGPSStateChangeBroadcast, new IntentFilter(Constants.Location.GPS_STATE_OFF_BROADCAST));
-        LocalBroadcastManager.getInstance(getApplicationContext())
-                .registerReceiver(mGeofenceCreatedBroadcast,new IntentFilter(Constants.Geofence.GEOFENCE_CREATED) );
+                .registerReceiver(mGPSStateChangeBroadcast, new IntentFilter(Constants.Location.GPS_STATE_OFF_BROADCAST));*/
+        /*LocalBroadcastManager.getInstance(getApplicationContext())
+                .registerReceiver(mGeofenceCreatedBroadcast,new IntentFilter(Constants.Geofence.GEOFENCE_CREATED) );*/
 
         mToolbar = (Toolbar) findViewById(R.id.main_activity_toolbar);
         //mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
@@ -401,11 +445,24 @@ public class HomeDrawerActivity extends BaseActivity
     public void onResume() {
         if (BuildConfig.DEBUG) Log.d(TAG, "on Resume");
         super.onResume();
-        if(isEarningSessionInProgress){
+        if(isUserWillingToEarn){
             Log.d(TAG, "in resume, binding geofence and step services if session in progress");
-            bindGeofenceService();
-            bindStepService();
+            //bindGeofenceService();
+            //bindStepService();
         }
+    }
+
+    @Override
+    public void onStart(){
+        Log.d(TAG, "on start");
+        IntentFilter fabIconIntentFilter = new IntentFilter();
+        fabIconIntentFilter.addAction(Constants.Geofence.SHOW_DEFAULT_ICON);
+        fabIconIntentFilter.addAction(Constants.Geofence.SHOW_EARNING_ICON);
+        LocalBroadcastManager.getInstance(getApplicationContext())
+                .registerReceiver(fabIconReceiver, new IntentFilter(Constants.Geofence.SHOW_EARNING_ICON));
+        LocalBroadcastManager.getInstance(getApplicationContext())
+                .registerReceiver(fabIconReceiver, new IntentFilter(Constants.Geofence.SHOW_DEFAULT_ICON));
+        super.onStart();
     }
 
     @Override
@@ -416,13 +473,20 @@ public class HomeDrawerActivity extends BaseActivity
         if(mBound){
             Log.d(TAG, "unbinding step service");
             // Unbind service with the same context that we used to bind to it
-            unbindService(mStepConnection);
+            /*unbindService(mStepConnection);*/
 
         }
         if(mGeofenceService != null)
         {
             Log.d(TAG, "Unbinding geofence service");
-            unbindService(mGeofenceConnection);
+            /*unbindService(mGeofenceConnection);*/
+        }
+        try {
+            LocalBroadcastManager.getInstance(getApplicationContext())
+            .unregisterReceiver(fabIconReceiver);
+        }
+        catch (Exception e){
+            Log.e(TAG, e.toString());
         }
 
     }
@@ -635,8 +699,6 @@ public class HomeDrawerActivity extends BaseActivity
 
 
     //---------------------------------------------------------------------------------------------
-    double lat, lon;
-    float rad;
 
     @Override
     public void onClick(View view) {
@@ -657,20 +719,45 @@ public class HomeDrawerActivity extends BaseActivity
                 startActivityForResult(getGeoFence, 1);*/
 
                 //start location updates and report on the accuracy of location obtained
+                if(!checkPermission())
+                {
+                    askPermission();
+                }
+                else{
+                    startEarningSequence();
 
-                isUserWillingToEarn = true;
-                if (BuildConfig.DEBUG) Log.d(TAG, "starting location updates");
+                }
 
-                // connect to the geofence service
+                /*if (BuildConfig.DEBUG) Log.d(TAG, "starting location updates");*/
+
+                /*// connect to the geofence service
                 startGeofenceService();
                 bindGeofenceService();
-                //*enableLocationUpdates();
+                /*//*enableLocationUpdates();*/
 
             }
         }
     }
 
-    private void bindGeofenceService(){
+    private void startEarningSequence() {
+        isUserWillingToEarn = true;
+        // check for the gps state
+
+        // if gps is on start the main service
+        // check if gps is already on coz it will not trigger gpsCheckReceiver
+        Log.d(TAG, "checking gps status and then starting geofence service if gps is already on");
+
+        checkGpsSettings(locationRequest);
+
+        /*LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+
+        if(lm.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+            startGeofenceService();
+        }*/
+
+    }
+
+   /* private void bindGeofenceService(){
         Intent geofenceIntent = new Intent(getApplicationContext(), GeofenceService.class);
         bindService(geofenceIntent, mGeofenceConnection, Context.BIND_AUTO_CREATE);
     }
@@ -678,13 +765,13 @@ public class HomeDrawerActivity extends BaseActivity
     private void bindStepService(){
         Intent stepIntent = new Intent(getApplicationContext(), StepListener.class);
         bindService(stepIntent, mStepConnection, Context.BIND_AUTO_CREATE);
-    }
+    }*/
 
 
     private MallGeoFence getGeofenceDetails() {
         Mall mall = Godlike.getMall(this, mallId);
         double latitude = 15.392144;
-        double longitude = 13.878643;
+        double longitude = 73.878643;
         float radius = 200.0f;
         //Log.d(TAG, "lat = " + latitude + " lon = " + longitude + " address = " + mall.getAddress());
         MallGeoFence fence = new MallGeoFence(latitude, longitude, radius);
@@ -803,6 +890,190 @@ public class HomeDrawerActivity extends BaseActivity
             startGeofence();
         }
     }*/
+
+    //====================================================================================
+
+    // Check for permission to access Location
+    public boolean checkPermission() {
+        Log.d(TAG, "checkPermission()");
+        // Ask for permission if it wasn't granted yet
+        return (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED );
+    }
+
+    // Asks for permission
+    public void askPermission() {
+        Log.d(TAG, "askPermission()");
+
+        // Show rationale if the permission has been denied for the first time
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if(shouldShowRequestPermissionRationale(android.Manifest.permission.ACCESS_FINE_LOCATION))
+            {
+                //Toast.makeText(this, "We need Gps to track you", Toast.LENGTH_SHORT)
+                // .show();
+            }
+        }
+        ActivityCompat.requestPermissions(
+                this,
+                new String[] { android.Manifest.permission.ACCESS_FINE_LOCATION },
+                Constants.Permission.ACCESS_FINE_LOCATION_PERMISSION
+        );
+    }
+
+    // Verify user's response of the permission requested
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        Log.d(TAG, "onRequestPermissionsResult()");
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch ( requestCode ) {
+            case Constants.Permission.ACCESS_FINE_LOCATION_PERMISSION: {
+                if ( grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED ){
+                    // Permission granted
+                    // Check Location Settings for gps state
+                    //startLocationUpdates();
+                    startEarningSequence();
+
+                } else {
+                    // Permission denied
+                    permissionsDenied();
+                }
+                break;
+            }
+        }
+    }
+
+    // App cannot work without the permissions
+    private void permissionsDenied() {
+        Log.w(TAG, "permissionsDenied()");
+        // TODO close app and warn user
+    }
+
+    // Check if the GPS is turned on
+    public void checkGpsSettings(LocationRequest locationRequest) {
+
+        if(BuildConfig.DEBUG)  Log.d(TAG, "Checking GPS settings");
+
+        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
+                .addLocationRequest(locationRequest)
+                .setAlwaysShow(true);
+
+        GoogleApiClient googleApiClient = new GoogleApiClient.Builder( this )
+                .addConnectionCallbacks( this )
+                .addOnConnectionFailedListener( this )
+                .addApi( LocationServices.API )
+                .build();
+
+        googleApiClient.connect();
+
+        // Check whether the current location settings are satisfied
+        PendingResult<LocationSettingsResult> result = LocationServices
+                .SettingsApi.checkLocationSettings(googleApiClient, builder.build());
+
+        result.setResultCallback(new ResultCallback<LocationSettingsResult>() {
+            @Override
+            public void onResult(LocationSettingsResult result)
+            {
+                final Status status = result.getStatus();
+                final LocationSettingsStates states = result.getLocationSettingsStates();
+
+                switch (status.getStatusCode())
+                {
+                    case LocationSettingsStatusCodes.SUCCESS:
+                        if(BuildConfig.DEBUG)  Log.d(TAG, "GPS is already enabled");
+                        startGeofenceService();
+                        break;
+
+                    case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
+                        if(BuildConfig.DEBUG)  Log.d(TAG, "Need to turn GPS on");
+                        try
+                        {
+                            status.startResolutionForResult(
+                                    HomeDrawerActivity.this, Constants.REQUEST_CHECK_LOCATION_SETTINGS);
+                        } catch (IntentSender.SendIntentException e){}
+                        break;
+
+                    case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
+                        Toast.makeText(HomeDrawerActivity.this, "Cannot change GPS settings", Toast.LENGTH_SHORT)
+                                .show();
+                        break;
+                }
+            }
+        });
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+
+        if(BuildConfig.DEBUG)
+            Log.d(TAG, "onActivityResult() called with: " + "requestCode = [" + requestCode + "], resultCode = [" + resultCode + "], data = [" + data + "]");
+
+        switch (requestCode)
+        {
+            case Constants.REQUEST_CHECK_LOCATION_SETTINGS:
+                if(resultCode == Activity.RESULT_OK)
+                {
+                    Log.d(TAG, "gps enabled, sending broadcast");
+                    startGeofenceService();
+                }
+                else{
+                    //user has denied turning on the gps, show the user reason to use gps.
+                    // 1. Instantiate an AlertDialog.Builder with its constructor
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+                    // 2. Chain together various setter methods to set the dialog characteristics
+                    builder.setMessage(R.string.GPS_required_message)
+                            .setTitle(R.string.GPS_required_title);
+
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.cancel();
+                            checkGpsSettings(locationRequest);      // since gpsCheck has been called
+                            // before => that the locationRequest object which is a class object is
+                            // ready for use and hence we can supply the object to the gpsCheck.
+                        }
+                    });
+
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.cancel();
+                            Log.d(TAG, "gps enable clarification denied");
+                        }
+                    });
+                    // 3. Get the AlertDialog from create()
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
+                break;
+
+
+        }
+
+    }
+
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
+
+        if(BuildConfig.DEBUG) Log.d(TAG, "connected to the location services");
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+        Log.d(TAG, "api Connection suspended");
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        Log.d(TAG, "api Connection failed");
+    }
+
+
+    //==============================================================================================
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

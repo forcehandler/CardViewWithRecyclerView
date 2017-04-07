@@ -2,11 +2,17 @@ package com.example.abhiraj.cardviewwithrecyclerview.geofencing;
 
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Binder;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -37,6 +43,12 @@ public class GeofenceService extends Service implements GoogleApiClient.Connecti
     private static Geofence sGeofence;
     public static GoogleApiClient googleApiClient;
 
+    private static double latitude;
+    private static double longitude;
+    private static float radius;
+
+    private static MallGeoFence fence;
+
     private IBinder mBinder = new GeofenceBinder();
     @Nullable
     @Override
@@ -47,6 +59,14 @@ public class GeofenceService extends Service implements GoogleApiClient.Connecti
     @Override
     public void onCreate(){
         Log.d(TAG, "onCreate");
+        LocalBroadcastManager.getInstance(getApplicationContext())
+                .registerReceiver(mGPSStateChangeBroadcast, new IntentFilter(Constants.Location.GPS_STATE_ON_BROADCAST));
+        LocalBroadcastManager.getInstance(getApplicationContext())
+                .registerReceiver(mGPSStateChangeBroadcast, new IntentFilter(Constants.Location.GPS_STATE_ON_BROADCAST));
+        LocalBroadcastManager.getInstance(getApplicationContext())
+                .registerReceiver(mGeofenceEnterBroadcast, new IntentFilter(Constants.Geofence.GEOFENCE_ENTER_BROADCAST));
+        LocalBroadcastManager.getInstance(getApplicationContext())
+                .registerReceiver(mGeofenceEnterBroadcast, new IntentFilter(Constants.Geofence.GEOFENCE_EXIT_BROADCAST));
         super.onCreate();
     }
 
@@ -57,6 +77,31 @@ public class GeofenceService extends Service implements GoogleApiClient.Connecti
         }
     }
 
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId){
+
+        Log.d(TAG, "onstart command");
+
+        latitude = intent.getDoubleExtra("latitude", 0.0);
+        longitude = intent.getDoubleExtra("longitude", 0.0);
+        radius = intent.getFloatExtra("radius", 200.0f);
+
+        fence = new MallGeoFence(latitude, longitude, radius);
+        enableLocationUpdates();
+        return START_NOT_STICKY;
+    }
+
+    @Override
+    public void onDestroy(){
+
+        if(mBound){
+            unbindService(mStepConnection);
+        }
+        stopPedometerService();
+        googleApiClient.disconnect();
+
+        super.onDestroy();
+    }
 
 //--------------------------------------------------------------------------------------------------------------======================
     public void enableLocationUpdates(){
@@ -76,6 +121,7 @@ public class GeofenceService extends Service implements GoogleApiClient.Connecti
     public void createGoogleApi() {
         Log.d(TAG, "createGoogleApi()");
         if ( googleApiClient == null ) {
+            Log.d(TAG, "google api client was null");
             googleApiClient = new GoogleApiClient.Builder( this )
                     .addConnectionCallbacks( this )
                     .addOnConnectionFailedListener( this )
@@ -85,8 +131,9 @@ public class GeofenceService extends Service implements GoogleApiClient.Connecti
         if(googleApiClient.isConnected())
         {
             if(BuildConfig.DEBUG) Log.d(TAG, "already connected to geofenceGoogleApiClient");
-            sendAPIConnectedBroadcast();
+            /*sendAPIConnectedBroadcast();*/
         }
+        if(!googleApiClient.isConnected()){Log.d(TAG, "not connected to googelapiclient");}
     }
 
     private void sendAPIConnectedBroadcast() {
@@ -102,11 +149,16 @@ public class GeofenceService extends Service implements GoogleApiClient.Connecti
         if(BuildConfig.DEBUG) Log.d(TAG, "connected to the location services");
         if(checkPermission()){
             startLocationUpdates();
+
+            // assuminng that the gps is already on coz we check for it before starting the service
+
+            startPedometerService();
+            bindStepService();
         }
         else{
-            //askPermission();          // TODO: check the affect of this statement
+            //askPermission();          // TODO: check the effect of this statement
         }
-        sendAPIConnectedBroadcast();
+        /*sendAPIConnectedBroadcast();*/
         // GPS check will occur only if GOOGLE API is connected.
     }
 
@@ -143,111 +195,6 @@ public class GeofenceService extends Service implements GoogleApiClient.Connecti
         // TODO close app and warn user
     }
 
-    // Check if the GPS is turned on
-   /* public void checkGpsSettings(LocationRequest locationRequest) {
-
-        if(BuildConfig.DEBUG)  Log.d(TAG, "Checking GPS settings");
-
-        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
-                .addLocationRequest(locationRequest)
-                .setAlwaysShow(true);
-
-        // Check whether the current location settings are satisfied
-        PendingResult<LocationSettingsResult> result = LocationServices
-                .SettingsApi.checkLocationSettings(geofenceGoogleApiClient, builder.build());
-
-        result.setResultCallback(new ResultCallback<LocationSettingsResult>() {
-            @Override
-            public void onResult(LocationSettingsResult result)
-            {
-                final Status status = result.getStatus();
-                final LocationSettingsStates states = result.getLocationSettingsStates();
-
-                switch (status.getStatusCode())
-                {
-                    case LocationSettingsStatusCodes.SUCCESS:
-                        if(BuildConfig.DEBUG)  Log.d(TAG, "GPS is already enabled");
-                        //sendGPSEnabledBroadcast();
-                        break;
-
-                    case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
-                        if(BuildConfig.DEBUG)  Log.d(TAG, "Need to turn GPS on");
-                        try
-                        {
-                            status.startResolutionForResult(
-                                    BaseActivity.this, Constants.REQUEST_CHECK_LOCATION_SETTINGS);
-                        } catch (IntentSender.SendIntentException e){}
-                        break;
-
-                    case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
-                        Toast.makeText(BaseActivity.this, "Cannot change GPS settings", Toast.LENGTH_SHORT)
-                                .show();
-                        break;
-                }
-            }
-        });
-    }*/
-
-
-    /*@Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
-        super.onActivityResult(requestCode,resultCode,data);
-
-        if(BuildConfig.DEBUG)
-            Log.d(TAG, "onActivityResult() called with: " + "requestCode = [" + requestCode + "], resultCode = [" + resultCode + "], data = [" + data + "]");
-
-        switch (requestCode)
-        {
-            case Constants.REQUEST_CHECK_LOCATION_SETTINGS:
-                if(resultCode == Activity.RESULT_OK)
-                {
-                    Log.d(TAG, "gps enabled, sending broadcast");
-                    //sendGPSEnabledBroadcast();
-                }
-                else{
-                    //user has denied turning on the gps, show the user reason to use gps.
-                    // 1. Instantiate an AlertDialog.Builder with its constructor
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-                    // 2. Chain together various setter methods to set the dialog characteristics
-                    builder.setMessage(R.string.GPS_required_message)
-                            .setTitle(R.string.GPS_required_title);
-
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.cancel();
-                            checkGpsSettings(locationRequest);      // since gpsCheck has been called
-                            // before => that the locationRequest object which is a class object is
-                            // ready for use and hence we can supply the object to the gpsCheck.
-                        }
-                    });
-
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.cancel();
-                            Log.d(TAG, "gps enable clarification denied");
-                        }
-                    });
-                    // 3. Get the AlertDialog from create()
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
-                }
-                break;
-
-
-        }
-
-    }*/
-
-    // GPs state listener for gps state change
-    /*private void sendGPSEnabledBroadcast() {
-
-        Intent intent = new Intent();
-        intent.setAction(Constants.Location.GPS_ENABLED);
-        LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(intent);
-    }*/
 
 
     //---------------------------------------------------------------------------------------------
@@ -374,14 +321,51 @@ public class GeofenceService extends Service implements GoogleApiClient.Connecti
             if(BuildConfig.DEBUG) Log.d(TAG, "Successfully created the geofence");
             //saveGeofence();
             //drawGeofence();
-            Intent intent = new Intent();
+
+           /* Intent intent = new Intent();
             intent.setAction("GeofenceCreated");
-            LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(intent);
+            LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(intent);*/
+
+
+            // when the geofence is created without loitering, check for user's presence in mall
+            if(!shouldAllowLoitering()){
+                Log.d(TAG, "loitering is not allowed so check if user is in valid mall");
+                checkIfUserIsInValidMall();
+            }
+            else if(shouldAllowLoitering()){
+                if(mBound){
+                    stepListener.reRegisterSensor();
+                    Log.d(TAG, "issuing earning notification after starting step counter");
+                    stepListener.sendNotification("Earning", "Keep " +
+                            "exploring to earn coupons");
+                    isEarningSessionInProgress = true;
+
+                    sendUiUpdateBroadcast(true);
+                }
+            }
+
         } else {
             // inform about fail
             if(BuildConfig.DEBUG){
                 Log.d(TAG, "could not create the geofence");
             }
+        }
+    }
+
+    private void sendUiUpdateBroadcast(boolean isEarning) {
+
+        Intent fabButtonIconIntent = new Intent();
+        if(isEarning){
+            Log.d(TAG, "sending is earning icon broadcast");
+            fabButtonIconIntent.setAction(Constants.Geofence.SHOW_EARNING_ICON);
+            LocalBroadcastManager.getInstance(getApplicationContext())
+                    .sendBroadcast(fabButtonIconIntent);
+        }
+        else{
+            Log.d(TAG, "sending default icon broadcast");
+            fabButtonIconIntent.setAction(Constants.Geofence.SHOW_DEFAULT_ICON);
+            LocalBroadcastManager.getInstance(getApplicationContext())
+                    .sendBroadcast(fabButtonIconIntent);
         }
     }
 
@@ -402,5 +386,236 @@ public class GeofenceService extends Service implements GoogleApiClient.Connecti
         });
         // Stop pedometer service
 
+    }
+
+
+    //------------------------------====================================================================================
+
+    // Code from the home activity
+
+    private StepListener stepListener;
+    private boolean isEarningSessionInProgress = false;           // TODO: testing phase hence true, create a function to determine user's presence
+    // in the geofence
+
+    private boolean isEarningPaused = false;
+
+    private boolean isInsideGeofence = false;
+
+    private boolean mBound = false;
+
+
+    /*private BroadcastReceiver mAPIConnectedBroadcast = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (BuildConfig.DEBUG) Log.d(TAG, "received api connect broadcast");
+
+            // give base activity the instance of googleApiClient form geofence service
+            // googleApiClient is not null becouse this broadcast is received after the geofenceService is connected
+            geofenceGoogleApiClient = GeofenceService.googleApiClient;
+            // check the gps status
+
+            locationRequest = LocationRequest.create()
+                    .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+                    .setInterval(UPDATE_INTERVAL)
+                    .setFastestInterval(FASTEST_INTERVAL);
+            if(checkPermission()){
+                checkGpsSettings(locationRequest);
+            }
+
+            // check if gps is already on coz it will not trigger gpsCheckReceiver
+            LocationManager lm = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
+
+            if(lm.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+                // start service(do not start counting steps now)
+                startPedometerService();
+                // bind to the service
+                bindStepService();
+            }
+            *//*Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    MallGeoFence mallGeoFence = getGeofenceDetails();
+                    startGeofence(mallGeoFence, shouldAllowLoitering());      // api connect implies user
+                }
+            }, 3000);*//*
+
+        }
+    };*/
+
+    private boolean shouldAllowLoitering() {
+
+        if(isInsideGeofence){          // if the user is earning right now then allow loitering otherwise don't
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
+   /* private BroadcastReceiver mGeofenceCreatedBroadcast = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d(TAG, "Geofence created broadcast received");
+
+            // when the geofence is created without loitering, check for user's presence in mall
+            if(!shouldAllowLoitering()){
+                Log.d(TAG, "loitering is not allowed so check if user is in valid mall");
+                checkIfUserIsInValidMall();
+            }
+            else if(shouldAllowLoitering()){
+                if(mBound){
+                    stepListener.reRegisterSensor();
+                    Log.d(TAG, "issuing earning notification after starting step counter");
+                    stepListener.sendNotification("Earning", "Keep " +
+                            "exploring to earn coupons");
+                    isEarningSessionInProgress = true;
+                }
+            }
+        }
+    };*/
+
+    private BroadcastReceiver mGeofenceEnterBroadcast = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (BuildConfig.DEBUG) Log.d(TAG, "received geofence enter broadcast");
+
+            if (intent.getAction().equals(Constants.Geofence.GEOFENCE_ENTER_BROADCAST)) {
+                isInsideGeofence = true;
+                isEarningSessionInProgress = true;
+                //mFloatingActionButton.setImageResource(R.drawable.ic_favorite_white_24dp);
+
+            }
+            else if (intent.getAction().equals(Constants.Geofence.GEOFENCE_EXIT_BROADCAST)) {
+                isInsideGeofence = false;
+                isEarningSessionInProgress = false;
+                //mFloatingActionButton.setImageResource(R.drawable.ic_search_white_48dp);
+                clearGeofence();
+                if(mBound){
+                    unbindService(mStepConnection);
+                }
+                stopPedometerService();
+                stopSelf();
+            }
+        }
+    };
+
+    private BroadcastReceiver mGPSStateChangeBroadcast = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            Log.d(TAG, "received gps state change broadcast");
+            if(intent.getAction().equals(Constants.Location.GPS_STATE_ON_BROADCAST)){
+
+                enableLocationUpdates();
+
+            }
+
+            else if(intent.getAction().equals(Constants.Location.GPS_STATE_OFF_BROADCAST)){
+                isInsideGeofence = false;
+                Log.d(TAG, "Gps turned off broadcast received");
+
+
+                    Log.d(TAG, "user was earning when the gps was turned off");
+                    // if the user is earning when the gps outage occurs, display a notificaiton
+                    // informing user to turn on the gps, and meanwhile unregister the step sensor
+                    // for the steplistener service.
+                    if(mBound) {
+                        Log.d(TAG, "sending earning paused notification and unregistering step sensor");
+                        if(isEarningSessionInProgress){
+                            stepListener.sendNotification("Earning Paused", "Please turn on the gps");
+                        }
+                        stepListener.unRegisterSensor();
+                        unbindService(mStepConnection);
+                    }
+
+            }
+        }
+    };
+
+    private void bindStepService(){
+        Intent stepIntent = new Intent(getApplicationContext(), StepListener.class);
+        bindService(stepIntent, mStepConnection, Context.BIND_AUTO_CREATE);
+    }
+
+    /** Defines callbacks for service binding, passed to bindService() */
+    private ServiceConnection mStepConnection = new ServiceConnection() {
+
+        @Override
+        public void onServiceConnected(ComponentName className,
+                                       IBinder service) {
+
+            if(BuildConfig.DEBUG) Log.d(TAG, "bound to the step listener service");
+            // We've bound to LocalService, cast the IBinder and get LocalService instance
+            StepListener.StepBinder binder = (StepListener.StepBinder) service;
+            stepListener = binder.getService();
+            mBound = true;
+
+            startGeofenceAccordingToUserState();
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName arg0) {
+            mBound = false;
+        }
+    };
+
+    private void checkIfUserIsInValidMall(){
+
+        if(isInsideGeofence){
+            Log.d(TAG, "user is in valid mall instantly");
+            startGeofenceAccordingToUserState();
+        }
+        else{
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    if(isInsideGeofence){
+                        Log.d(TAG, "inside valid mall after 8 second check");
+                        startGeofenceAccordingToUserState();
+                    }
+
+                    else{
+                        Log.d(TAG, "In invalid mall please select A VALID MALL");
+                        if(mBound){
+                            unbindService(mStepConnection);
+                        }
+                        stopPedometerService();
+                        googleApiClient.disconnect();
+                        sendUiUpdateBroadcast(false);
+                    }
+                }
+            }, 8000);
+        }
+    }
+    private void startGeofenceAccordingToUserState()
+    {
+        // if user is in the mall create geofence with loitering
+        if(isInsideGeofence){
+            clearGeofence();
+            Log.d(TAG, "inside geofence, creating loitering geofence");
+            startGeofence(fence, true);
+        }
+        else{
+            Log.d(TAG, "outside geofence,  creating non loitering geofence");
+            startGeofence(fence, false);
+        }
+    }
+
+    private void startPedometerService() {
+        if(BuildConfig.DEBUG)
+            Log.d(TAG, "start pedometer");
+        startService(new Intent(getApplicationContext(), StepListener.class));
+    }
+
+    private void stopPedometerService() {
+        if(BuildConfig.DEBUG) {
+            Log.d(TAG, "stop pedometer");
+            Log.d(TAG, "releasing wakelock");
+        }
+        StepListener.releaseWakeLock();
+        stopService(new Intent(getApplicationContext(), StepListener.class));
     }
 }

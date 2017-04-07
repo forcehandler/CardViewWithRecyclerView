@@ -121,7 +121,6 @@ public class Godlike extends Application{
                     Log.d(TAG, "datasnapshot is an instance of mall");
                     sMall = dataSnapshot.getValue(Mall.class);
                 }
-                LocalBroadcastManager.getInstance(sContext).sendBroadcast(new Intent(Constants.Broadcasts.BROADCAST_SHOP_UPDATE));
             }
 
             @Override

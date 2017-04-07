@@ -1,32 +1,21 @@
 package com.example.abhiraj.cardviewwithrecyclerview;
 
-import android.app.Activity;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.net.ConnectivityManager;
-import android.os.Build;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.abhiraj.cardviewwithrecyclerview.geofencing.GeofenceTrasitionService;
 import com.example.abhiraj.cardviewwithrecyclerview.geofencing.MallGeoFence;
-import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.Geofence;
@@ -34,14 +23,10 @@ import com.google.android.gms.location.GeofencingRequest;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.LocationSettingsRequest;
-import com.google.android.gms.location.LocationSettingsResult;
-import com.google.android.gms.location.LocationSettingsStates;
-import com.google.android.gms.location.LocationSettingsStatusCodes;
 
 import java.net.InetAddress;
 
-public class BaseActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener, ResultCallback<Status> {
+public class BaseActivity extends AppCompatActivity implements LocationListener, ResultCallback<Status> {
 
     private static final String TAG = BaseActivity.class.getSimpleName();
 
@@ -73,10 +58,6 @@ public class BaseActivity extends AppCompatActivity implements GoogleApiClient.C
     @Override
     public void onStart(){
         super.onStart();
-        if(geofenceGoogleApiClient != null)
-        {
-            geofenceGoogleApiClient.connect();
-        }
     }
 
     @Override
@@ -108,7 +89,7 @@ public class BaseActivity extends AppCompatActivity implements GoogleApiClient.C
     }
 //-------------------------------------------------------------------------------------------------
 
-    public void enableLocationUpdates(){
+    /*public void enableLocationUpdates(){
         // Call GoogleApiClient connection when starting the Activity
         createGoogleApi();
         if(geofenceGoogleApiClient != null) {
@@ -166,7 +147,7 @@ public class BaseActivity extends AppCompatActivity implements GoogleApiClient.C
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
         Log.d(TAG, "api Connection failed");
-    }
+    }*/
 
 
     //---------------------------------------------------------------------------------------------
@@ -180,7 +161,7 @@ public class BaseActivity extends AppCompatActivity implements GoogleApiClient.C
     }
 
     // Asks for permission
-    private void askPermission() {
+  /*  public void askPermission() {
         Log.d(TAG, "askPermission()");
 
         // Show rationale if the permission has been denied for the first time
@@ -209,7 +190,7 @@ public class BaseActivity extends AppCompatActivity implements GoogleApiClient.C
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED ){
                     // Permission granted
                     // Check Location Settings for gps state
-                    startLocationUpdates();
+                    //startLocationUpdates();
 
                 } else {
                     // Permission denied
@@ -224,10 +205,10 @@ public class BaseActivity extends AppCompatActivity implements GoogleApiClient.C
     private void permissionsDenied() {
         Log.w(TAG, "permissionsDenied()");
         // TODO close app and warn user
-    }
+    }*/
 
     // Check if the GPS is turned on
-    public void checkGpsSettings(LocationRequest locationRequest) {
+    /*public void checkGpsSettings(LocationRequest locationRequest) {
 
         if(BuildConfig.DEBUG)  Log.d(TAG, "Checking GPS settings");
 
@@ -322,7 +303,7 @@ public class BaseActivity extends AppCompatActivity implements GoogleApiClient.C
 
         }
 
-    }
+    }*/
 
     // GPs state listener for gps state change
     /*private void sendGPSEnabledBroadcast() {
